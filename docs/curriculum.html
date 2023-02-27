@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>데이터 사이언스 - chatGPT 커리큘럼</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">chatGPT 커리큘럼</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">데이터 사이언스</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R 및 데이터 랭글링 소개</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./curriculum.html" class="sidebar-item-text sidebar-link active">chatGPT 커리큘럼</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#수정된-커리큘럼" id="toc-수정된-커리큘럼" class="nav-link active" data-scroll-target="#수정된-커리큘럼">수정된 커리큘럼</a></li>
+  <li><a href="#작업흐름" id="toc-작업흐름" class="nav-link" data-scroll-target="#작업흐름">작업흐름</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">chatGPT 커리큘럼</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">R (영문)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">–</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">파이썬</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>1주차 1주차: R 및 데이터 랭글링 소개</p>
+<ul>
+<li>R 개요 및 데이터 과학에서의 중요성</li>
+<li>R에서 데이터 랭글링(Wrangling) 및 정리의 기본 개념 소개</li>
+<li><code>dplyr</code> 및 <code>tidyr</code> 패키지를 사용하여 데이터 필터링, 정렬, 병합 및 집계와 같은 데이터 랭글링 기법 소개</li>
+<li>벡터, 행렬, 데이터 프레임 및 목록과 같은 R의 데이터 구조 소개</li>
+<li>R에서 데이터 랭글링 기술을 연습하는 연습 및 프로젝트</li>
+</ul></li>
+<li><p>2주차 데이터 시각화 및 탐색적 데이터 분석(EDA)</p>
+<ul>
+<li>데이터 시각화 소개 및 데이터 과학에서 데이터 시각화의 중요성</li>
+<li>다양한 유형의 시각화를 생성하기 위한 ggplot2 및 lattice와 같은 R 패키지 사용</li>
+<li>데이터 분포, 상관관계, 이상값 탐지 등 EDA의 원리 소개</li>
+<li>분산형 차트, 히스토그램, 상자그림과 같은 데이터 탐색 기법</li>
+<li>R에서 데이터 시각화 및 EDA 기술을 연습할 수 있는 연습 및 프로젝트</li>
+</ul></li>
+<li><p>3주차 통계 분석 및 기계 학습 기초</p>
+<ul>
+<li>R의 통계 분석 및 기계 학습 소개</li>
+<li>확률 분포, 가설 테스트 및 회귀 분석과 같은 기본 통계 개념 개요</li>
+<li>지도 학습 및 비지도 학습과 같은 기계 학습 알고리즘과 데이터 과학에서의 응용 프로그램 소개</li>
+<li>머신 러닝 알고리즘 구현을 위한 <code>caret</code> 및 <code>mlr</code>과 같은 R 패키지 사용</li>
+<li>R에서 통계 분석 및 기계 학습 기본 사항을 연습하는 연습 및 프로젝트</li>
+</ul></li>
+<li><p>4주차 고급 데이터 과학 기법</p>
+<ul>
+<li>텍스트 마이닝, 네트워크 분석, 시계열 분석과 같은 R의 고급 데이터 과학 기법 소개</li>
+<li><code>tm</code>, 토픽모델 등 R 패키지를 활용한 감성 분석, 텍스트 분류, 토픽 모델링 등 텍스트 마이닝 개념 개요 소개</li>
+<li><code>igraph</code>, <code>statnet</code> 등 R 패키지를 이용한 소셜 네트워크 분석, 중심성 측정, 커뮤니티 탐지 등 네트워크 분석 기법 소개</li>
+<li>예측, <code>tseries</code> 등 R 패키지를 활용한 ARIMA 모델, 예측, 추세 분석 등 시계열 분석 기법 소개</li>
+<li>R의 고급 데이터 과학 기법을 실습할 수 있는 실습 및 프로젝트.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Week 1: Introduction to R and Data Wrangling</p>
+<ul>
+<li>Overview of R and its importance in data science</li>
+<li>Introduction to the basic concepts of data wrangling and cleaning in R</li>
+<li>Techniques for data wrangling such as filtering, sorting, merging, and aggregating data using dplyr and tidyr packages</li>
+<li>Introduction to data structures in R such as vectors, matrices, data frames, and lists</li>
+<li>Exercises and projects to practice data wrangling techniques in R</li>
+</ul></li>
+<li><p>Week 2: Data Visualization and Exploratory Data Analysis (EDA)</p>
+<ul>
+<li>Introduction to data visualization and its importance in data science</li>
+<li>Use of R packages such as ggplot2 and lattice for creating various types of visualizations</li>
+<li>Principles of EDA such as data distribution, correlation, and outliers detection</li>
+<li>Techniques for data exploration such as scatter plots, histograms, and box plots</li>
+<li>Exercises and projects to practice data visualization and EDA techniques in R</li>
+</ul></li>
+<li><p>Week 3: Statistical Analysis and Machine Learning Fundamentals</p>
+<ul>
+<li>Introduction to statistical analysis and machine learning in R</li>
+<li>Overview of basic statistical concepts such as probability distributions, hypothesis testing, and regression analysis</li>
+<li>Introduction to machine learning algorithms such as supervised and unsupervised learning, and their applications in data science</li>
+<li>Use of R packages such as caret and mlr for implementing machine learning algorithms</li>
+<li>Exercises and projects to practice statistical analysis and machine learning fundamentals in R</li>
+</ul></li>
+<li><p>Week 4: Advanced Data Science Techniques</p>
+<ul>
+<li>Introduction to advanced data science techniques in R such as text mining, network analysis, and time series analysis</li>
+<li>Overview of text mining concepts such as sentiment analysis, text classification, and topic modeling using R packages such as tm and topicmodels</li>
+<li>Introduction to network analysis techniques such as social network analysis, centrality measures, and community detection using R packages such as igraph and statnet</li>
+<li>Introduction to time series analysis techniques such as ARIMA models, forecasting, and trend analysis using R packages such as forecast and tseries</li>
+<li>Exercises and projects to practice advanced data science techniques in R.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>1주차: 데이터 과학 및 데이터 랭글링 소개</p>
+<ul>
+<li>데이터 과학의 개요와 다양한 분야에서 데이터 과학의 중요성 소개</li>
+<li>데이터 랭글링 및 정리의 기본 개념 소개</li>
+<li>데이터 필터링, 정렬, 병합 및 집계와 같은 데이터 랭글링(Wrangling) 기술</li>
+<li>데이터 랭글링을 위한 판다스(<code>pandas</code>)와 같은 Python 라이브러리 사용</li>
+<li>데이터 랭글링 기술을 연습할 수 있는 연습 및 프로젝트</li>
+</ul></li>
+<li><p>2주차 데이터 시각화 및 탐색적 데이터 분석(EDA)</p>
+<ul>
+<li>데이터 시각화에 대한 소개와 데이터 과학에서 데이터 시각화의 중요성</li>
+<li>다양한 유형의 시각화를 생성하기 위해 <code>matplotlib</code>, <code>seaborn</code>, <code>plotly</code>와 같은 Python 라이브러리 사용</li>
+<li>데이터 분포, 상관관계, 이상값 탐지 등 EDA의 원리 소개</li>
+<li>분산형 차트, 히스토그램, 박스 플롯 등 데이터 탐색을 위한 기술</li>
+<li>데이터 시각화 및 EDA 기술을 연습할 수 있는 연습 및 프로젝트</li>
+</ul></li>
+<li><p>3주차 통계 분석 및 머신 러닝 기초</p>
+<ul>
+<li>통계 분석 및 머신 러닝 소개</li>
+<li>확률 분포, 가설 테스트 및 회귀 분석과 같은 기본 통계 개념 개요</li>
+<li>지도 학습 및 비지도 학습과 같은 머신 러닝 알고리즘과 데이터 과학에 적용 소개</li>
+<li>머신 러닝 알고리즘 구현을 위한 <code>scikit-learn</code>과 같은 Python 라이브러리 사용</li>
+<li>통계 분석 및 머신 러닝 기초를 연습하는 연습 및 프로젝트</li>
+</ul></li>
+<li><p>4주차 고급 데이터 과학 기법</p>
+<ul>
+<li>딥러닝, 자연어 처리, 컴퓨터 비전과 같은 고급 데이터 과학 기법 소개</li>
+<li>신경망, 컨볼루션 신경망(CNN), 순환 신경망(RNN)과 같은 딥 러닝 개념 개요</li>
+<li>딥러닝 알고리즘 구현을 위한 <code>Tensorflow</code> 및 <code>Keras</code>와 같은 Python 라이브러리 사용</li>
+<li>감정 분석, 텍스트 분류, 명명된 개체 인식과 같은 자연어 처리 기술 소개</li>
+<li>이미지 분류, 객체 감지, 분할과 같은 컴퓨터 비전 기술 소개</li>
+<li>고급 데이터 과학 기법을 실습할 수 있는 연습 및 프로젝트</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Week 1: Introduction to Data Science and Data Wrangling</p>
+<ul>
+<li>Overview of data science and its importance in various fields</li>
+<li>Introduction to the basic concepts of data wrangling and cleaning</li>
+<li>Techniques for data wrangling such as filtering, sorting, merging, and aggregating data</li>
+<li>Use of Python libraries such as pandas for data wrangling</li>
+<li>Exercises and projects to practice data wrangling techniques</li>
+</ul></li>
+<li><p>Week 2: Data Visualization and Exploratory Data Analysis (EDA)</p>
+<ul>
+<li>Introduction to data visualization and its importance in data science</li>
+<li>Use of Python libraries such as matplotlib, seaborn and plotly for creating various types of visualizations</li>
+<li>Principles of EDA such as data distribution, correlation, and outliers detection</li>
+<li>Techniques for data exploration such as scatter plots, histograms, and box plots</li>
+<li>Exercises and projects to practice data visualization and EDA techniques</li>
+</ul></li>
+<li><p>Week 3: Statistical Analysis and Machine Learning Fundamentals</p>
+<ul>
+<li>Introduction to statistical analysis and machine learning</li>
+<li>Overview of basic statistical concepts such as probability distributions, hypothesis testing, and regression analysis</li>
+<li>Introduction to machine learning algorithms such as supervised and unsupervised learning, and their applications in data science</li>
+<li>Use of Python libraries such as scikit-learn for implementing machine learning algorithms</li>
+<li>Exercises and projects to practice statistical analysis and machine learning fundamentals</li>
+</ul></li>
+<li><p>Week 4: Advanced Data Science Techniques</p>
+<ul>
+<li>Introduction to advanced data science techniques such as deep learning, natural language processing, and computer vision</li>
+<li>Overview of deep learning concepts such as neural networks, convolutional neural networks (CNN), and recurrent neural networks (RNN)</li>
+<li>Use of Python libraries such as Tensorflow and Keras for implementing deep learning algorithms</li>
+<li>Introduction to natural language processing techniques such as sentiment analysis, text classification, and named entity recognition</li>
+<li>Introduction to computer vision techniques such as image classification, object detection, and segmentation</li>
+<li>Exercises and projects to practice advanced data science techniques</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="수정된-커리큘럼" class="level2">
+<h2 class="anchored" data-anchor-id="수정된-커리큘럼">수정된 커리큘럼</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>1주차 1주차: R 및 데이터 랭글링 소개</p>
+<ul>
+<li>R 개요 및 데이터 과학에서의 중요성</li>
+<li>R에서 데이터 랭글링(Wrangling) 및 정리의 기본 개념 소개</li>
+<li><code>dplyr</code> 및 <code>tidyr</code> 패키지를 사용하여 데이터 필터링, 정렬, 병합 및 집계와 같은 데이터 랭글링 기법 소개</li>
+<li><span style="color:blue;"><code>pivot_longer()</code>, <code>pivot_wider()</code> 함수 사용 깔끔한 데이터 변형 </span></li>
+<li>벡터, 행렬, 데이터 프레임 및 목록과 같은 R의 데이터 구조 소개</li>
+<li>R에서 데이터 랭글링 기술을 연습하는 연습 및 프로젝트</li>
+</ul></li>
+<li><p>2주차 데이터 시각화 및 탐색적 데이터 분석(EDA)</p>
+<ul>
+<li>데이터 시각화 소개 및 데이터 과학에서 데이터 시각화의 중요성</li>
+<li>다양한 유형의 시각화를 생성하기 위한 <code>ggplot2</code>, <code>gt</code> R 패키지 사용</li>
+<li>데이터 분포, 상관관계, 이상값 탐지 등 EDA의 원리 소개</li>
+<li>분산형 차트, 히스토그램, 상자그림과 같은 데이터 탐색 기법</li>
+<li>R에서 데이터 시각화 및 EDA 기술을 연습할 수 있는 연습 및 프로젝트</li>
+</ul></li>
+<li><p>3주차 통계 분석 및 기계 학습 기초</p>
+<ul>
+<li>R의 통계 분석 및 기계 학습 소개</li>
+<li>확률 분포, 가설 테스트 및 회귀 분석과 같은 기본 통계 개념 개요</li>
+<li>지도 학습 및 비지도 학습과 같은 기계 학습 알고리즘과 데이터 과학에서의 응용 프로그램 소개</li>
+<li>머신 러닝 알고리즘 구현을 위한 <code>tidymodels</code> 및 <code>mlr</code>과 같은 R 패키지 사용</li>
+<li>R에서 통계 분석 및 기계 학습 기본 사항을 연습하는 연습 및 프로젝트</li>
+</ul></li>
+<li><p>4주차 고급 데이터 과학 기법</p>
+<ul>
+<li>텍스트 마이닝, 네트워크 분석, 시계열 분석과 같은 R의 고급 데이터 과학 기법 소개</li>
+<li><code>tidytext</code>, 토픽모델 등 R 패키지를 활용한 감성 분석, 텍스트 분류, 토픽 모델링 등 텍스트 마이닝 개념 개요 소개</li>
+<li><code>tidygraph</code> 등 R 패키지를 이용한 소셜 네트워크 분석, 중심성 측정, 커뮤니티 탐지 등 네트워크 분석 기법 소개</li>
+<li>예측, <code>tidyverts</code> 등 R 패키지를 활용한 ARIMA 모델, 예측, 추세 분석 등 시계열 분석 기법 소개</li>
+<li>R의 고급 데이터 과학 기법을 실습할 수 있는 실습 및 프로젝트.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="작업흐름" class="level2">
+<h2 class="anchored" data-anchor-id="작업흐름">작업흐름</h2>
+<p>chatGPT 각장의 절을 작성하여 deepl에서 교정 후 quarto book으로 출판한다.</p>
+<div id="fig-chatGPT" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-figure quarto-figure-center" style="flex-basis: 33.3%;justify-content: center;">
+<figure class="figure">
+<p><a href="images/publishing_chatGPT.png" class="lightbox" title="chatGPT 작성" data-gallery="quarto-lightbox-gallery-1"><img src="images/publishing_chatGPT.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">chatGPT 작성</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center" style="flex-basis: 33.3%;justify-content: center;">
+<figure class="figure">
+<p><a href="images/publishing_DeepL.png" class="lightbox" title="DeepL 번역 및 교정" data-gallery="quarto-lightbox-gallery-2"><img src="images/publishing_DeepL.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">DeepL 번역 및 교정</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center" style="flex-basis: 33.3%;justify-content: center;">
+<figure class="figure">
+<p><a href="images/publishing_quarto.png" class="lightbox" title="쿼토 출판저작" data-gallery="quarto-lightbox-gallery-3"><img src="images/publishing_quarto.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">쿼토 출판저작</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: chatGPT 디지털 글쓰기 저작 흐름</figcaption><p></p>
+</figure>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R 및 데이터 랭글링 소개</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":true,"openEffect":"zoom","closeEffect":"zoom"});</script>
+
+
+
+</body></html>

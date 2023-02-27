@@ -1,0 +1,221 @@
+# chatGPT 커리큘럼 {.unnumbered}
+
+:::{.panel-tabset}
+
+## R
+
+::: {.callout-note collapse="false"}
+
+- 1주차 1주차: R 및 데이터 랭글링 소개
+
+  - R 개요 및 데이터 과학에서의 중요성
+  - R에서 데이터 랭글링(Wrangling) 및 정리의 기본 개념 소개
+  - `dplyr` 및 `tidyr` 패키지를 사용하여 데이터 필터링, 정렬, 병합 및 집계와 같은 데이터 랭글링 기법 소개
+  - 벡터, 행렬, 데이터 프레임 및 목록과 같은 R의 데이터 구조 소개
+  - R에서 데이터 랭글링 기술을 연습하는 연습 및 프로젝트
+  
+- 2주차 데이터 시각화 및 탐색적 데이터 분석(EDA)
+
+  - 데이터 시각화 소개 및 데이터 과학에서 데이터 시각화의 중요성
+  - 다양한 유형의 시각화를 생성하기 위한 ggplot2 및 lattice와 같은 R 패키지 사용
+  - 데이터 분포, 상관관계, 이상값 탐지 등 EDA의 원리 소개
+  - 분산형 차트, 히스토그램, 상자그림과 같은 데이터 탐색 기법
+  - R에서 데이터 시각화 및 EDA 기술을 연습할 수 있는 연습 및 프로젝트
+  
+- 3주차 통계 분석 및 기계 학습 기초
+
+  - R의 통계 분석 및 기계 학습 소개
+  - 확률 분포, 가설 테스트 및 회귀 분석과 같은 기본 통계 개념 개요
+  - 지도 학습 및 비지도 학습과 같은 기계 학습 알고리즘과 데이터 과학에서의 응용 프로그램 소개
+  - 머신 러닝 알고리즘 구현을 위한 `caret` 및 `mlr`과 같은 R 패키지 사용
+  - R에서 통계 분석 및 기계 학습 기본 사항을 연습하는 연습 및 프로젝트
+  
+- 4주차 고급 데이터 과학 기법
+
+  - 텍스트 마이닝, 네트워크 분석, 시계열 분석과 같은 R의 고급 데이터 과학 기법 소개
+  - `tm`, 토픽모델 등 R 패키지를 활용한 감성 분석, 텍스트 분류, 토픽 모델링 등 텍스트 마이닝 개념 개요 소개
+  - `igraph`, `statnet` 등 R 패키지를 이용한 소셜 네트워크 분석, 중심성 측정, 커뮤니티 탐지 등 네트워크 분석 기법 소개
+  - 예측, `tseries` 등 R 패키지를 활용한 ARIMA 모델, 예측, 추세 분석 등 시계열 분석 기법 소개
+  - R의 고급 데이터 과학 기법을 실습할 수 있는 실습 및 프로젝트.
+:::
+
+## R (영문)
+
+::: {.callout-note collapse="false"}
+
+
+- Week 1: Introduction to R and Data Wrangling
+
+  - Overview of R and its importance in data science
+  - Introduction to the basic concepts of data wrangling and cleaning in R
+  - Techniques for data wrangling such as filtering, sorting, merging, and aggregating data using dplyr and tidyr packages
+  - Introduction to data structures in R such as vectors, matrices, data frames, and lists
+  - Exercises and projects to practice data wrangling techniques in R
+
+- Week 2: Data Visualization and Exploratory Data Analysis (EDA)
+
+  - Introduction to data visualization and its importance in data science
+  - Use of R packages such as ggplot2 and lattice for creating various types of visualizations
+  - Principles of EDA such as data distribution, correlation, and outliers detection
+  - Techniques for data exploration such as scatter plots, histograms, and box plots
+  - Exercises and projects to practice data visualization and EDA techniques in R
+
+- Week 3: Statistical Analysis and Machine Learning Fundamentals
+
+  - Introduction to statistical analysis and machine learning in R
+  - Overview of basic statistical concepts such as probability distributions, hypothesis testing, and regression analysis
+  - Introduction to machine learning algorithms such as supervised and unsupervised learning, and their applications in data science
+  - Use of R packages such as caret and mlr for implementing machine learning algorithms
+  - Exercises and projects to practice statistical analysis and machine learning fundamentals in R
+
+- Week 4: Advanced Data Science Techniques
+
+  - Introduction to advanced data science techniques in R such as text mining, network analysis, and time series analysis
+  - Overview of text mining concepts such as sentiment analysis, text classification, and topic modeling using R packages such as tm and topicmodels
+  - Introduction to network analysis techniques such as social network analysis, centrality measures, and community detection using R packages such as igraph and statnet
+  - Introduction to time series analysis techniques such as ARIMA models, forecasting, and trend analysis using R packages such as forecast and tseries
+  - Exercises and projects to practice advanced data science techniques in R.
+
+:::
+
+## --
+
+
+## 파이썬
+
+::: {.callout-note collapse="false"}
+
+- 1주차: 데이터 과학 및 데이터 랭글링 소개
+
+  - 데이터 과학의 개요와 다양한 분야에서 데이터 과학의 중요성 소개
+  - 데이터 랭글링 및 정리의 기본 개념 소개
+  - 데이터 필터링, 정렬, 병합 및 집계와 같은 데이터 랭글링(Wrangling) 기술
+  - 데이터 랭글링을 위한 판다스(`pandas`)와 같은 Python 라이브러리 사용
+  - 데이터 랭글링 기술을 연습할 수 있는 연습 및 프로젝트
+
+- 2주차 데이터 시각화 및 탐색적 데이터 분석(EDA)
+
+  - 데이터 시각화에 대한 소개와 데이터 과학에서 데이터 시각화의 중요성
+  - 다양한 유형의 시각화를 생성하기 위해 `matplotlib`, `seaborn`, `plotly`와 같은 Python 라이브러리 사용
+  - 데이터 분포, 상관관계, 이상값 탐지 등 EDA의 원리 소개
+  - 분산형 차트, 히스토그램, 박스 플롯 등 데이터 탐색을 위한 기술
+  - 데이터 시각화 및 EDA 기술을 연습할 수 있는 연습 및 프로젝트
+
+- 3주차 통계 분석 및 머신 러닝 기초
+
+  - 통계 분석 및 머신 러닝 소개
+  - 확률 분포, 가설 테스트 및 회귀 분석과 같은 기본 통계 개념 개요
+  - 지도 학습 및 비지도 학습과 같은 머신 러닝 알고리즘과 데이터 과학에 적용 소개
+  - 머신 러닝 알고리즘 구현을 위한 `scikit-learn`과 같은 Python 라이브러리 사용
+  - 통계 분석 및 머신 러닝 기초를 연습하는 연습 및 프로젝트
+
+- 4주차 고급 데이터 과학 기법
+
+  - 딥러닝, 자연어 처리, 컴퓨터 비전과 같은 고급 데이터 과학 기법 소개
+  - 신경망, 컨볼루션 신경망(CNN), 순환 신경망(RNN)과 같은 딥 러닝 개념 개요
+  - 딥러닝 알고리즘 구현을 위한 `Tensorflow` 및 `Keras`와 같은 Python 라이브러리 사용
+  - 감정 분석, 텍스트 분류, 명명된 개체 인식과 같은 자연어 처리 기술 소개
+  - 이미지 분류, 객체 감지, 분할과 같은 컴퓨터 비전 기술 소개
+  - 고급 데이터 과학 기법을 실습할 수 있는 연습 및 프로젝트
+:::
+
+## Python
+
+::: {.callout-note collapse="false"}
+
+- Week 1: Introduction to Data Science and Data Wrangling
+
+  - Overview of data science and its importance in various fields
+  - Introduction to the basic concepts of data wrangling and cleaning
+  - Techniques for data wrangling such as filtering, sorting, merging, and aggregating data
+  - Use of Python libraries such as pandas for data wrangling
+  - Exercises and projects to practice data wrangling techniques
+
+- Week 2: Data Visualization and Exploratory Data Analysis (EDA)
+
+  - Introduction to data visualization and its importance in data science
+  - Use of Python libraries such as matplotlib, seaborn and plotly for creating various types of visualizations
+  - Principles of EDA such as data distribution, correlation, and outliers detection
+  - Techniques for data exploration such as scatter plots, histograms, and box plots
+  - Exercises and projects to practice data visualization and EDA techniques
+
+- Week 3: Statistical Analysis and Machine Learning Fundamentals
+
+  - Introduction to statistical analysis and machine learning
+  - Overview of basic statistical concepts such as probability distributions, hypothesis testing, and regression analysis
+  - Introduction to machine learning algorithms such as supervised and unsupervised learning, and their applications in data science
+  - Use of Python libraries such as scikit-learn for implementing machine learning algorithms
+  - Exercises and projects to practice statistical analysis and machine learning fundamentals
+
+- Week 4: Advanced Data Science Techniques
+ 
+  - Introduction to advanced data science techniques such as deep learning, natural language processing, and computer vision
+  - Overview of deep learning concepts such as neural networks, convolutional neural networks (CNN), and recurrent neural networks (RNN)
+  - Use of Python libraries such as Tensorflow and Keras for implementing deep learning algorithms
+  - Introduction to natural language processing techniques such as sentiment analysis, text classification, and named entity recognition
+  - Introduction to computer vision techniques such as image classification, object detection, and segmentation
+  - Exercises and projects to practice advanced data science techniques
+
+:::
+
+:::
+
+
+## 수정된 커리큘럼
+
+::: {.callout-note collapse="false"}
+
+- 1주차 1주차: R 및 데이터 랭글링 소개
+
+  - R 개요 및 데이터 과학에서의 중요성
+  - R에서 데이터 랭글링(Wrangling) 및 정리의 기본 개념 소개
+  - `dplyr` 및 `tidyr` 패키지를 사용하여 데이터 필터링, 정렬, 병합 및 집계와 같은 데이터 랭글링 기법 소개
+  - <span style="color:blue;">`pivot_longer()`, `pivot_wider()` 함수 사용 깔끔한 데이터 변형 </span>
+  - 벡터, 행렬, 데이터 프레임 및 목록과 같은 R의 데이터 구조 소개
+  - R에서 데이터 랭글링 기술을 연습하는 연습 및 프로젝트
+  
+- 2주차 데이터 시각화 및 탐색적 데이터 분석(EDA)
+
+  - 데이터 시각화 소개 및 데이터 과학에서 데이터 시각화의 중요성
+  - 다양한 유형의 시각화를 생성하기 위한 `ggplot2`, `gt` R 패키지 사용
+  - 데이터 분포, 상관관계, 이상값 탐지 등 EDA의 원리 소개
+  - 분산형 차트, 히스토그램, 상자그림과 같은 데이터 탐색 기법
+  - R에서 데이터 시각화 및 EDA 기술을 연습할 수 있는 연습 및 프로젝트
+  
+- 3주차 통계 분석 및 기계 학습 기초
+
+  - R의 통계 분석 및 기계 학습 소개
+  - 확률 분포, 가설 테스트 및 회귀 분석과 같은 기본 통계 개념 개요
+  - 지도 학습 및 비지도 학습과 같은 기계 학습 알고리즘과 데이터 과학에서의 응용 프로그램 소개
+  - 머신 러닝 알고리즘 구현을 위한 `tidymodels` 및 `mlr`과 같은 R 패키지 사용
+  - R에서 통계 분석 및 기계 학습 기본 사항을 연습하는 연습 및 프로젝트
+  
+- 4주차 고급 데이터 과학 기법
+
+  - 텍스트 마이닝, 네트워크 분석, 시계열 분석과 같은 R의 고급 데이터 과학 기법 소개
+  - `tidytext`, 토픽모델 등 R 패키지를 활용한 감성 분석, 텍스트 분류, 토픽 모델링 등 텍스트 마이닝 개념 개요 소개
+  - `tidygraph` 등 R 패키지를 이용한 소셜 네트워크 분석, 중심성 측정, 커뮤니티 탐지 등 네트워크 분석 기법 소개
+  - 예측, `tidyverts` 등 R 패키지를 활용한 ARIMA 모델, 예측, 추세 분석 등 시계열 분석 기법 소개
+  - R의 고급 데이터 과학 기법을 실습할 수 있는 실습 및 프로젝트.
+  
+:::
+
+## 작업흐름
+
+chatGPT 각장의 절을 작성하여 deepl에서 교정 후 quarto book으로 출판한다.
+
+:::{#fig-chatGPT layout-nrow=1}
+
+![chatGPT 작성](images/publishing_chatGPT.png)
+
+![DeepL 번역 및 교정](images/publishing_DeepL.png)
+
+![쿼토 출판저작](images/publishing_quarto.png)
+
+chatGPT 디지털 글쓰기 저작 흐름
+
+:::
+
+
+
+
