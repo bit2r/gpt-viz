@@ -11,6 +11,7 @@ book:
     - intro.qmd
     - viz_EDA.qmd
     - model.qmd
+    - advanced.qmd
     - curriculum.qmd
     - references.qmd
 
