@@ -123,7 +123,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#데이터-시각화와-중요성" id="toc-데이터-시각화와-중요성" class="nav-link active" data-scroll-target="#데이터-시각화와-중요성"><span class="toc-section-number">2.1</span>  데이터 시각화와 중요성</a>
+  <ul class="collapse">
+  <li><a href="#데이터-시각화-유형" id="toc-데이터-시각화-유형" class="nav-link" data-scroll-target="#데이터-시각화-유형"><span class="toc-section-number">2.1.1</span>  데이터 시각화 유형</a></li>
+  <li><a href="#효과적인-시각화-원칙" id="toc-효과적인-시각화-원칙" class="nav-link" data-scroll-target="#효과적인-시각화-원칙"><span class="toc-section-number">2.1.2</span>  효과적인 시각화 원칙</a></li>
+  </ul></li>
+  <li><a href="#시각화-도구---ggplot2" id="toc-시각화-도구---ggplot2" class="nav-link" data-scroll-target="#시각화-도구---ggplot2"><span class="toc-section-number">2.2</span>  시각화 도구 - <code>ggplot2</code></a>
+  <ul class="collapse">
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="toc-section-number">2.2.1</span>  <code>ggplot2</code></a></li>
+  <li><a href="#올바른-패키지-선택" id="toc-올바른-패키지-선택" class="nav-link" data-scroll-target="#올바른-패키지-선택"><span class="toc-section-number">2.2.2</span>  올바른 패키지 선택</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -145,8 +160,62 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>데이터 시각화는 일반적으로 차트, 그래프 및 기타 시각적 요소를 사용하여 데이터를 그래픽으로 표현하는 프로세스입니다. 데이터 시각화는 단순한 숫자, 표만으로는 이해하기 어려운 데이터의 복잡한 패턴과 관계를 탐색하고 전달할 수 있게 해주기 때문에 데이터 과학에서 중요한 부분입니다.</p>
+<section id="데이터-시각화와-중요성" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="데이터-시각화와-중요성"><span class="header-section-number">2.1</span> 데이터 시각화와 중요성</h2>
+<p>데이터 과학에서 데이터 시각화가 중요한 이유는 여러 가지가 있습니다:</p>
+<ul>
+<li><p>데이터 탐색: 데이터 시각화를 사용하면 데이터를 시각적으로 탐색하고 숫자 표에서 바로 알 수 없는 패턴, 추세 및 이상값을 신속하게 식별할 수 있습니다.</p></li>
+<li><p>인사이트 전달: 데이터 시각화를 통해 인사이트와 발견 사항을 명확하고 간결한 방식으로 다른 사람에게 전달할 수 있습니다. 데이터를 시각적으로 제시함으로써 더 많은 사람들이 복잡한 정보에 더 쉽게 접근하고 이해할 수 있도록 만들 수 있습니다.</p></li>
+<li><p>모델 검증: 데이터 시각화는 변수 간의 관계를 시각화하고 잠재적인 관심 영역을 식별하여 모델과 가설을 검증하는 데 사용할 수 있습니다.</p></li>
+<li><p>의사 결정 안내: 데이터 시각화는 원시 데이터에서 즉시 드러나지 않을 수 있는 추세와 패턴을 식별하는 데 도움이 되는 방식으로 데이터를 제시하여 의사 결정을 안내하는 데 사용할 수 있습니다.</p></li>
+</ul>
+<section id="데이터-시각화-유형" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="데이터-시각화-유형"><span class="header-section-number">2.1.1</span> 데이터 시각화 유형</h3>
+<p>데이터를 표현하는 데 사용할 수 있는 데이터 시각화에는 다음과 같은 다양한 유형이 있습니다:</p>
+<ul>
+<li><p>막대 차트: 카테고리 간 값을 비교하는 데 사용됩니다.</p></li>
+<li><p>꺾은선형 차트: 시간 경과에 따른 추세를 표시하거나 여러 변수의 변화를 비교하는 데 사용됩니다.</p></li>
+<li><p>산점도 차트: 두 변수 간의 관계를 시각화하는 데 사용됩니다.</p></li>
+<li><p>히트맵: 2차원 공간에서 데이터의 밀도를 시각화하는 데 사용됩니다.</p></li>
+<li><p>나무트리 맵: 계층형 데이터를 시각화하는 데 사용됩니다.</p></li>
+<li><p>네트워크 다이어그램: 엔티티 간의 관계를 시각화하는 데 사용됩니다.</p></li>
+</ul>
+</section>
+<section id="효과적인-시각화-원칙" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="효과적인-시각화-원칙"><span class="header-section-number">2.1.2</span> 효과적인 시각화 원칙</h3>
+<p>효과적인 데이터 시각화를 만들려면 몇 가지 기본 원칙을 따르는 것이 중요합니다:</p>
+<ul>
+<li><p>단순성: 불필요한 군더더기를 피하여 시각화를 단순하고 읽기 쉽게 유지합니다.</p></li>
+<li><p>정확성: 시각화가 왜곡이나 잘못된 표현을 피하면서 데이터를 정확하게 표현하는지 확인합니다.</p></li>
+<li><p>관련성: 데이터와 전달하려는 메시지에 적합한 시각화 유형을 선택합니다.</p></li>
+<li><p>일관성: 여러 시각화에서 일관된 색 구성표, 글꼴 및 기타 시각적 요소를 사용합니다.</p></li>
+<li><p>상호 작용: 사용자가 데이터를 더 자세히 탐색할 수 있도록 상호 작용을 제공하세요.</p></li>
+</ul>
+<p>이러한 원칙을 따르고 적절한 데이터 시각화를 사용하면 복잡한 데이터를 이해하고 전달하는 데 도움이 되는 명확하고 효과적인 시각화를 만들 수 있습니다.</p>
+</section>
+</section>
+<section id="시각화-도구---ggplot2" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="시각화-도구---ggplot2"><span class="header-section-number">2.2</span> 시각화 도구 - <code>ggplot2</code></h2>
+<p>R은 데이터 시각화를 만들기 위한 다양한 패키지를 제공하지만, 가장 인기 있고 강력한 두 가지 패키지는 <code>ggplot2</code>입니다. 이 패키지를 사용하면 산점도 차트, 꺾은선형 차트, 막대 차트 등 다양한 고품질의 사용자 지정 가능한 시각화를 만들 수 있습니다.</p>
+<section id="ggplot2" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">2.2.1</span> <code>ggplot2</code></h3>
+<p><code>ggplot2</code>는 그래픽 문법을 사용하여 우아하고 사용자 지정 가능한 데이터 시각화를 만들기 위한 패키지입니다. 모든 시각화는 기하학적 도형, 눈금, 좌표계와 같은 선언적 구성 요소 집합으로 분해할 수 있다는 아이디어를 기반으로 합니다. 이러한 빌딩 블록을 다양한 방식으로 결합하여 사용자는 다양하고 복잡한 시각화를 만들 수 있습니다.</p>
+<p>ggplot2의 몇 가지 기능은 다음과 같습니다:</p>
+<ul>
+<li><p>레이어링(Layering): 점, 선, 레이블 등 다양한 요소를 레이어링하여 복잡한 시각화를 만들 수 있습니다.</p></li>
+<li><p>테마(Themes): 글꼴, 색상 및 배경을 변경하여 시각화의 모양을 사용자 지정할 수 있는 기능입니다.</p></li>
+<li><p>패싯(Faceting): 데이터의 서로 다른 하위 집합을 기반으로 여러 개의 작은 시각화를 만드는 기능입니다.</p></li>
+</ul>
+</section>
+<section id="올바른-패키지-선택" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="올바른-패키지-선택"><span class="header-section-number">2.2.2</span> 올바른 패키지 선택</h3>
+<p>ggplot2 및 다양한 시각화 패키지는 모두 R에서 데이터 시각화를 만들기 위한 강력한 패키지입니다. 올바른 패키지를 선택하는 것은 프로젝트의 특정 요구 사항에 따라 달라집니다. 고도의 사용자 지정이 필요한 복잡한 시각화를 만드는 데 관심이 있는 경우 <code>ggplot2</code>가 더 나은 선택일 수 있습니다.</p>
+<p>어떤 패키지를 선택하든 효과적인 데이터 시각화의 원칙을 잘 이해하고 명확하고 효과적인 시각화를 만들기 위한 모범 사례를 따르는 것이 중요합니다.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
