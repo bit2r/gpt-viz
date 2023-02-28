@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="사단법인 한국 R 사용자회, chatGPT">
-<meta name="dcterms.date" content="2023-02-27">
 
-<title>데이터 사이언스</title>
+<title>데이터 사이언스 - 2&nbsp; 시각화와 EDA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./curriculum.html" rel="next">
+<link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -42,9 +41,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -74,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">데이터 사이언스</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">시각화와 EDA</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -99,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">서문</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">서문</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -109,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./viz_EDA.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">시각화와 탐색적 데이터 분석</span></a>
+  <a href="./viz_EDA.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">시각화와 EDA</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -127,42 +123,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#서문" id="toc-서문" class="nav-link active" data-scroll-target="#서문">서문</a>
-  <ul class="collapse">
-  <li><a href="#작업방식" id="toc-작업방식" class="nav-link" data-scroll-target="#작업방식">작업방식</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">데이터 사이언스</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">시각화와 EDA</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>사단법인 한국 R 사용자회, chatGPT </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 27, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -170,51 +145,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="서문" class="level1 unnumbered">
-<h1 class="unnumbered">서문</h1>
-<p>한국 R 사용자회는 2022년 2월 28일에 설립되어 1년을 맞이하게 되었습니다. R 사용자회는 R Consortium R User Groups에 등록된 Seoul R Meetup을 운영하며 데이터 사이언스 R / Tidyverse 미트업을 매월 개최하고 있습니다. 또한, R 지식 나눔과 커뮤니티 멤버들 간의 사랑방 역할도 수행하고 있습니다.</p>
-<p>2022년부터는 오픈 통계 패키지(BitStat) 패키지를 개발하여 보급하였을 뿐만 아니라 BitNLP, BitSpatial, BitReport 패키지를 개발하여 공개하였습니다. 또한, “디지털 글쓰기”, “데이터 과학 프로그래밍”, “데이터 시각화”, “데이터 과학 기본기”, “오픈 통계 패키지”, “R 텍스트 마이닝”, “데이터 과학 언플러그드” 등의 전자책을 집필하여 무료로 대중에 공개하였습니다. 2023년은 교보정보통신 자회사 디플래닉스 후원을 받아 강남 교보타워에서 <strong>chatGPT와 데이터 과학을 주제</strong>로 매월 진행될 예정입니다.</p>
-<p>한국 R 사용자회는 AI와 함께 chatGPT 및 연관 AI 도구를 활용하여 데이터 문해력 향상과 디지털 불평등 해소를 위해 데이터 과학 전자책을 제작하여 공개하게 되었습니다.</p>
-<p>더 많은 정보는 아래 링크를 참고해주세요.</p>
-<ul>
-<li>사단법인 한국 R 사용자회: https://r2bit.com/</li>
-<li>Meetup : https://www.meetup.com/seoul-r-meetup/</li>
-<li>Seoul R Meetup : https://r2bit.com/seoul-R/</li>
-<li>Facebook Group : https://www.facebook.com/groups/tidyverse</li>
-<li>Youtube Channel: https://www.youtube.com/channel/UCW-epmIvjBEhhVXw_F0Nqbw</li>
-</ul>
-<section id="작업방식" class="level2">
-<h2 class="anchored" data-anchor-id="작업방식">작업방식</h2>
-<p>chatGPT 각장의 절을 작성하여 deepl에서 교정 후 quarto book으로 출판한다.</p>
-<div id="fig-chatGPT" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure quarto-figure-center" style="flex-basis: 33.3%;justify-content: center;">
-<figure class="figure">
-<p><a href="images/publishing_chatGPT.png" class="lightbox" title="chatGPT 작성" data-gallery="quarto-lightbox-gallery-1"><img src="images/publishing_chatGPT.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">chatGPT 작성</figcaption><p></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center" style="flex-basis: 33.3%;justify-content: center;">
-<figure class="figure">
-<p><a href="images/publishing_DeepL.png" class="lightbox" title="DeepL 번역 및 교정" data-gallery="quarto-lightbox-gallery-2"><img src="images/publishing_DeepL.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">DeepL 번역 및 교정</figcaption><p></p>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center" style="flex-basis: 33.3%;justify-content: center;">
-<figure class="figure">
-<p><a href="images/publishing_quarto.png" class="lightbox" title="쿼토 출판저작" data-gallery="quarto-lightbox-gallery-3"><img src="images/publishing_quarto.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">쿼토 출판저작</figcaption><p></p>
-</figure>
-</div>
-</div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: chatGPT 디지털 글쓰기 저작 흐름</figcaption><p></p>
-</figure>
-</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -352,15 +284,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R 및 데이터 랭글링 소개</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R 및 데이터 랭글링 소개</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./curriculum.html" class="pagination-link">
+        <span class="nav-page-text">chatGPT 커리큘럼</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":true,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});</script>
 
 
 

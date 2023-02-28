@@ -9,6 +9,7 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - viz_EDA.qmd
     - curriculum.qmd
     - references.qmd
 

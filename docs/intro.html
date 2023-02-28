@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -124,6 +187,27 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#데이터-과학-및-데이터-랭글링-소개" id="toc-데이터-과학-및-데이터-랭글링-소개" class="nav-link active" data-scroll-target="#데이터-과학-및-데이터-랭글링-소개"><span class="toc-section-number">1.1</span>  데이터 과학 및 데이터 랭글링 소개</a></li>
   <li><a href="#r에서-데이터-랭글링wrangling-및-정리의-기본-개념-소개" id="toc-r에서-데이터-랭글링wrangling-및-정리의-기본-개념-소개" class="nav-link" data-scroll-target="#r에서-데이터-랭글링wrangling-및-정리의-기본-개념-소개"><span class="toc-section-number">1.2</span>  R에서 데이터 랭글링(Wrangling) 및 정리의 기본 개념 소개</a></li>
+  <li><a href="#데이터-랭글링을-위한-기술" id="toc-데이터-랭글링을-위한-기술" class="nav-link" data-scroll-target="#데이터-랭글링을-위한-기술"><span class="toc-section-number">1.3</span>  데이터 랭글링을 위한 기술</a>
+  <ul class="collapse">
+  <li><a href="#dplyr로-데이터-필터링" id="toc-dplyr로-데이터-필터링" class="nav-link" data-scroll-target="#dplyr로-데이터-필터링"><span class="toc-section-number">1.3.1</span>  <code>dplyr</code>로 데이터 필터링</a></li>
+  <li><a href="#dplyr로-데이터-정렬" id="toc-dplyr로-데이터-정렬" class="nav-link" data-scroll-target="#dplyr로-데이터-정렬"><span class="toc-section-number">1.3.2</span>  <code>dplyr</code>로 데이터 정렬</a></li>
+  <li><a href="#dplyr로-데이터-병합" id="toc-dplyr로-데이터-병합" class="nav-link" data-scroll-target="#dplyr로-데이터-병합"><span class="toc-section-number">1.3.3</span>  <code>dplyr</code>로 데이터 병합</a></li>
+  <li><a href="#tidyr로-데이터-재구성" id="toc-tidyr로-데이터-재구성" class="nav-link" data-scroll-target="#tidyr로-데이터-재구성"><span class="toc-section-number">1.3.4</span>  <code>tidyr</code>로 데이터 재구성</a></li>
+  <li><a href="#dplyr로-데이터-집계" id="toc-dplyr로-데이터-집계" class="nav-link" data-scroll-target="#dplyr로-데이터-집계"><span class="toc-section-number">1.3.5</span>  dplyr로 데이터 집계</a></li>
+  </ul></li>
+  <li><a href="#r-자료구조" id="toc-r-자료구조" class="nav-link" data-scroll-target="#r-자료구조"><span class="toc-section-number">1.4</span>  R 자료구조</a>
+  <ul class="collapse">
+  <li><a href="#벡터" id="toc-벡터" class="nav-link" data-scroll-target="#벡터"><span class="toc-section-number">1.4.1</span>  벡터</a></li>
+  <li><a href="#행렬" id="toc-행렬" class="nav-link" data-scroll-target="#행렬"><span class="toc-section-number">1.4.2</span>  행렬</a></li>
+  <li><a href="#데이터프레임" id="toc-데이터프레임" class="nav-link" data-scroll-target="#데이터프레임"><span class="toc-section-number">1.4.3</span>  데이터프레임</a></li>
+  <li><a href="#리스트" id="toc-리스트" class="nav-link" data-scroll-target="#리스트"><span class="toc-section-number">1.4.4</span>  리스트</a></li>
+  <li><a href="#결론" id="toc-결론" class="nav-link" data-scroll-target="#결론"><span class="toc-section-number">1.4.5</span>  결론</a></li>
+  </ul></li>
+  <li><a href="#연습문제와-프로젝트" id="toc-연습문제와-프로젝트" class="nav-link" data-scroll-target="#연습문제와-프로젝트"><span class="toc-section-number">1.5</span>  연습문제와 프로젝트</a>
+  <ul class="collapse">
+  <li><a href="#연습문제" id="toc-연습문제" class="nav-link" data-scroll-target="#연습문제"><span class="toc-section-number">1.5.1</span>  연습문제</a></li>
+  <li><a href="#프로젝트" id="toc-프로젝트" class="nav-link" data-scroll-target="#프로젝트"><span class="toc-section-number">1.5.2</span>  프로젝트</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -163,8 +247,147 @@ ul.task-list li input[type="checkbox"] {
 <p>데이터 정제에는 데이터를 더 유용한 형식으로 변환하는 작업도 포함될 수 있습니다. 여기에는 데이터 형식 변경, 데이터셋 병합 또는 데이터 형태변경 등이 포함될 수 있습니다. <code>dplyr</code> 패키지는 <code>select()</code>, <code>filter()</code>, <code>mutate()</code> 등 데이터 조작을 위한 다양한 함수를 제공합니다. <code>tidyr</code> 패키지는 데이터를 와이드(Wide) 형식에서 롱(Long) 형식으로 또는 그 반대로 피벗하는 등 데이터를 재구성하는 데 사용할 수 있습니다.</p>
 <p>데이터 랭글링의 또 다른 중요한 단계는 데이터 탐색입니다. 여기에는 데이터를 시각화하여 패턴, 추세 및 이상값을 식별하는 작업이 포함됩니다. <code>ggplot2</code> 패키지는 R에서 데이터 시각화를 위해 널리 사용되는 패키지로, 산점도, 히스토그램, 상자 그림 등 다양한 플롯을 만들 수 있는 함수를 제공합니다.</p>
 <p>요약하면, 데이터 랭글링과 정리는 데이터 분석 프로세스에서 중요한 단계입니다. R은 데이터 가져오기, 결측치 처리, 데이터 변환, 시각적 데이터 탐색 등의 기능을 포함하여 데이터 랭글링 및 정리를 위한 다양한 도구와 함수를 제공합니다. 이러한 기본 개념을 숙지하면 R에서 의미 있는 데이터 분석을 수행하는 데 큰 도움이 될 것입니다.</p>
+</section>
+<section id="데이터-랭글링을-위한-기술" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="데이터-랭글링을-위한-기술"><span class="header-section-number">1.3</span> 데이터 랭글링을 위한 기술</h2>
+<p>데이터 랭글링은 모든 데이터 과학자에게 필수적인 기술이며, 데이터를 관리하고 정리하는 데 도움이 되는 여러 가지 기술과 도구가 있습니다. 이 섹션에서는 데이터 랭글링을 위한 몇 가지 일반적인 기법을 <code>dplyr</code> 및 <code>tidyr</code> 패키지를 사용하여 살펴보겠습니다.</p>
+<section id="dplyr로-데이터-필터링" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="dplyr로-데이터-필터링"><span class="header-section-number">1.3.1</span> <code>dplyr</code>로 데이터 필터링</h3>
+<p><code>dplyr</code>의 <code>filter()</code> 함수는 하나 이상의 조건에 따라 데이터의 하위 집합을 추출하는 데 사용할 수 있습니다. 예를 들어, ’age’라는 열이 있는 ’mydata’라는 데이터 프레임이 있는 경우 filter() 함수를 사용하여 연령이 30보다 큰 모든 행을 추출할 수 있습니다:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mydata_filtered <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dplyr로-데이터-정렬" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="dplyr로-데이터-정렬"><span class="header-section-number">1.3.2</span> <code>dplyr</code>로 데이터 정렬</h3>
+<p><code>dplyr</code>의 <code>arrange()</code> 함수는 하나 이상의 열을 기준으로 데이터를 정렬하는 데 사용할 수 있습니다. 예를 들어 “name” 및 “age”라는 열이 있는 “mydata”라는 데이터 프레임이 있는 경우 arrange() 함수를 사용하여 데이터 프레임을 이름별로 정렬한 다음 연령별로 정렬할 수 있습니다:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mydata_sorted <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(name, age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dplyr로-데이터-병합" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="dplyr로-데이터-병합"><span class="header-section-number">1.3.3</span> <code>dplyr</code>로 데이터 병합</h3>
+<p>기본 R의 <code>merge()</code> 함수는 하나 이상의 공통 열을 기반으로 두 데이터 프레임을 병합하는 데 사용할 수 있습니다. 그러나 <code>merge()</code> 함수는 더 복잡한 병합에는 사용하기 어려울 수 있습니다. <code>dplyr</code>의 조인 함수(<code>left_join()</code>, <code>right_join()</code>, <code>inner_join()</code>, <code>full_join()</code>)는 데이터를 보다 유연하고 직관적으로 병합할 수 있는 방법을 제공합니다. 예를 들어, “id”라는 공통 열이 있는 “df1” 및 “df2”라는 두 개의 데이터 프레임이 있는 경우, <code>left_join()</code> 함수를 사용하여 “id” 열을 기준으로 두 데이터 프레임을 병합할 수 있습니다:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mydata_merged <span class="ot">&lt;-</span> <span class="fu">left_join</span>(df1, df2, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tidyr로-데이터-재구성" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="tidyr로-데이터-재구성"><span class="header-section-number">1.3.4</span> <code>tidyr</code>로 데이터 재구성</h3>
+<p><code>tidyr</code>의 피벗 함수(<code>pivot_longer()</code>, <code>pivot_wider()</code>)는 데이터를 와이드 형식에서 롱 형식으로 또는 그 반대로 재구성하는 데 사용할 수 있습니다. 예를 들어, 서로 다른 연도의 값을 나타내는 여러 열이 있는 데이터 프레임이 있는 경우 pivot_longer() 함수를 사용하여 연도와 값에 대한 열이 있는 긴 형식으로 데이터의 모양을 변경할 수 있습니다:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mydata_long <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"year_1"</span>, <span class="st">"year_2"</span>, <span class="st">"year_3"</span>), <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dplyr로-데이터-집계" class="level3" data-number="1.3.5">
+<h3 data-number="1.3.5" class="anchored" data-anchor-id="dplyr로-데이터-집계"><span class="header-section-number">1.3.5</span> dplyr로 데이터 집계</h3>
+<p><code>dplyr</code>의 <code>summarize()</code> 함수는 하나 이상의 그룹화 변수를 기준으로 데이터를 집계하고 요약 통계를 계산하는 데 사용할 수 있습니다. 예를 들어 “group” 및 “value”라는 열이 있는 “mydata”라는 데이터 프레임이 있는 경우 <code>summarize()</code> 함수를 사용하여 각 그룹에 대한 평균값을 계산할 수 있습니다:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mydata_summarized <span class="ot">&lt;-</span> mydata <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_value =</span> <span class="fu">mean</span>(value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>요약하면, <code>dply</code>r과 <code>tidyr</code>는 R에서 데이터 랭글링을 위한 강력한 패키지입니다. 데이터 필터링, 정렬, 병합, 집계와 같은 기술을 익히면 데이터를 효과적으로 작업하고 정리하는 데 큰 도움이 될 것입니다.</p>
+</section>
+</section>
+<section id="r-자료구조" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="r-자료구조"><span class="header-section-number">1.4</span> R 자료구조</h2>
+<p>R은 다양한 유형의 데이터로 작업할 수 있는 여러 데이터 구조를 제공하는 데이터 과학을 위한 강력한 언어입니다. 이 섹션에서는 R의 벡터, 행렬, 데이터프레임 및 목록의 기본 개념을 소개합니다.</p>
+<section id="벡터" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="벡터"><span class="header-section-number">1.4.1</span> 벡터</h3>
+<p>벡터(Vector)는 숫자, 문자 또는 논리와 같은 단일 데이터 유형의 데이터를 담을 수 있는 1차원 배열입니다. <code>c()</code> 함수를 사용하여 벡터를 만들 수 있습니다:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>myvector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>벡터에 더하기, 빼기, 곱하기, 나누기 등 다양한 연산을 수행할 수 있습니다. 예를 들어</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>myvector <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="행렬" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="행렬"><span class="header-section-number">1.4.2</span> 행렬</h3>
+<p>행렬은 숫자, 문자 또는 부울과 같은 단일 데이터 유형의 데이터를 담을 수 있는 2차원 배열입니다. <code>matrix()</code> 함수를 사용하여 행렬을 만들 수 있습니다:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mymatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>행렬을 더하기, 빼기, 곱하기, 나누기 등 다양한 연산을 행렬에 수행할 수 있습니다. 예를 들어</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mymatrix <span class="sc">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="데이터프레임" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="데이터프레임"><span class="header-section-number">1.4.3</span> 데이터프레임</h3>
+<p>데이터프레임(dataframe)은 각 열이 다른 데이터 유형(예: 숫자, 문자, 요인)을 가질 수 있는 2차원 테이블과 같은 구조입니다. <code>data.frame()</code> 함수를 사용하여 처음부터 데이터 프레임을 만들거나 R의 다양한 가져오기 함수 중 하나를 사용하여 파일에서 데이터를 가져와서(예: <code>read.csv()</code>, <code>read_excel()</code>) 데이터 프레임을 만들 수 있습니다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">column1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">column2 =</span> <span class="fu">c</span>(<span class="st">"value1"</span>, <span class="st">"value2"</span>, <span class="st">"value3"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>연산자 <code>$</code>를 사용하거나 <code>[]</code> 연산자를 사용하여 데이터 프레임의 개별 열에 액세스할 수 있습니다:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mydata<span class="sc">$</span>column1</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"column2"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="리스트" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="리스트"><span class="header-section-number">1.4.4</span> 리스트</h3>
+<p>리스트(list)는 벡터, 행렬, 데이터프레임 및 기타 리스트와 같은 다양한 유형의 객체 모음입니다. <code>list()</code> 함수를 사용하여 목록을 만들 수 있습니다:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mylist <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">myvector =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mymatrix =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mydata =</span> <span class="fu">data.frame</span>(</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">column1 =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">column2 =</span> <span class="fu">c</span>(<span class="st">"value1"</span>, <span class="st">"value2"</span>, <span class="st">"value3"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>연산자 <code>$</code>를 사용하거나 <code>[]</code> 연산자를 사용하여 목록의 개별 개체에 액세스할 수 있습니다:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mylist<span class="sc">$</span>myvector</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>mylist[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="결론" class="level3" data-number="1.4.5">
+<h3 data-number="1.4.5" class="anchored" data-anchor-id="결론"><span class="header-section-number">1.4.5</span> 결론</h3>
+<p>이 섹션에서는 벡터, 행렬, 데이터프레임 및 리스트와 같은 R의 데이터 구조에 대한 기본 개념을 소개했습니다. 이러한 데이터 구조와 그 속성을 이해하면 R에서 다양한 유형의 데이터로 작업하는 데 더 나은 준비가 될 것입니다.</p>
+</section>
+</section>
+<section id="연습문제와-프로젝트" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="연습문제와-프로젝트"><span class="header-section-number">1.5</span> 연습문제와 프로젝트</h2>
+<p>R에서 데이터 랭글링의 기본 개념을 배운 후에는 이러한 기술을 연습하고 실제 데이터 집합에 적용하는 것이 중요합니다. 다음은 R에서 데이터 랭글링 기술을 연마하는 데 사용할 수 있는 몇 가지 연습 및 프로젝트입니다:</p>
+<section id="연습문제" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="연습문제"><span class="header-section-number">1.5.1</span> 연습문제</h3>
+<ol type="1">
+<li><p><code>dplyr</code> 패키지를 사용하여 하나 이상의 조건으로 데이터 집합을 필터링합니다. 예를 들어, 고객 리뷰 데이터 집합을 필터링하여 평점이 4점 이상인 리뷰만 포함하도록 할 수 있습니다.</p></li>
+<li><p><code>dplyr</code> 패키지를 사용하여 하나 이상의 열을 기준으로 데이터 집합을 정렬합니다. 예를 들어, 판매 데이터의 데이터 집합을 날짜별로 정렬하여 시간 경과에 따른 판매량 변화를 확인할 수 있습니다.</p></li>
+<li><p><code>dplyr</code> 패키지를 사용하여 하나 이상의 열을 기준으로 데이터 집합을 그룹화하고 각 그룹에 대한 요약 통계를 계산합니다. 예를 들어, 고객 주문 데이터 집합을 지역별로 그룹화하여 각 지역의 평균 주문 규모를 계산할 수 있습니다.</p></li>
+<li><p><code>dplyr</code> 패키지를 사용하여 두 개 이상의 데이터 집합을 함께 조인합니다. 예를 들어, 고객 주문 데이터 집합을 고객 인구 통계 데이터 집합과 조인하여 인구 통계와 주문 크기 간에 상관관계가 있는지 확인합니다.</p></li>
+</ol>
+<p><code>. 데이터 집합을 와이드 포맷에서 롱 포맷으로 또는 롱 포맷에서 와이드 포맷으로 재구성하려면</code>tidyr` 패키지를 사용합니다. 예를 들어, 월별 매출 데이터의 데이터 집합을 와이드 형식(월별 열 하나)에서 롱 형식(월별 행 하나)으로 재구성할 수 있습니다.</p>
+</section>
+<section id="프로젝트" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="프로젝트"><span class="header-section-number">1.5.2</span> 프로젝트</h3>
+<ol type="1">
+<li><p><code>dplyr</code> 패키지를 사용하여 <code>MovieLens</code> 데이터 집합의 영화 평점 데이터 집합을 분석합니다. 필터링, 정렬, 그룹화, 요약 기능을 사용하여 “역대 최고 평점을 받은 영화는 무엇인가?”, “장르별로 평점이 어떻게 다른가?” 등의 질문에 답할 수 있습니다.</p></li>
+<li><p><code>dplyr</code> 패키지를 사용하여 비행 데이터의 데이터 집합을 분석합니다. 필터링, 정렬, 그룹화, 요약 기능을 사용하여 “미국에서 가장 혼잡한 공항은 어디인가?”, “항공편 지연 시간은 항공사별로 어떻게 다른가?” 등의 질문에 답할 수 있습니다.</p></li>
+<li><p><code>dplyr</code> 패키지를 사용하여 소셜 미디어 게시물의 데이터 집합을 분석합니다. 필터링, 정렬, 그룹화 및 요약 기능을 사용하여 “참여율이 가장 높은 소셜 미디어 플랫폼은 무엇인가요?”, “소셜 미디어에서 가장 많이 논의되는 주제는 무엇인가요?” 등의 질문에 답해 보세요.</p></li>
+</ol>
+<p>이러한 연습과 프로젝트를 연습함으로써 데이터 랭글링 기술을 사용하여 R에서 실제 데이터 집합을 분석하는 귀중한 경험을 쌓을 수 있습니다.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

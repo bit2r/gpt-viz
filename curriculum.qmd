@@ -200,22 +200,3 @@
   
 :::
 
-## 작업흐름
-
-chatGPT 각장의 절을 작성하여 deepl에서 교정 후 quarto book으로 출판한다.
-
-:::{#fig-chatGPT layout-nrow=1}
-
-![chatGPT 작성](images/publishing_chatGPT.png)
-
-![DeepL 번역 및 교정](images/publishing_DeepL.png)
-
-![쿼토 출판저작](images/publishing_quarto.png)
-
-chatGPT 디지털 글쓰기 저작 흐름
-
-:::
-
-
-
-
