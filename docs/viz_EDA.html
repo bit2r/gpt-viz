@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -136,6 +136,23 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="toc-section-number">2.2.1</span>  <code>ggplot2</code></a></li>
   <li><a href="#올바른-패키지-선택" id="toc-올바른-패키지-선택" class="nav-link" data-scroll-target="#올바른-패키지-선택"><span class="toc-section-number">2.2.2</span>  올바른 패키지 선택</a></li>
+  <li><a href="#eda-원칙" id="toc-eda-원칙" class="nav-link" data-scroll-target="#eda-원칙"><span class="toc-section-number">2.2.3</span>  EDA 원칙</a></li>
+  <li><a href="#데이터-분포" id="toc-데이터-분포" class="nav-link" data-scroll-target="#데이터-분포"><span class="toc-section-number">2.2.4</span>  데이터 분포</a></li>
+  <li><a href="#상관-관계" id="toc-상관-관계" class="nav-link" data-scroll-target="#상관-관계"><span class="toc-section-number">2.2.5</span>  상관 관계</a></li>
+  <li><a href="#이상값-감지" id="toc-이상값-감지" class="nav-link" data-scroll-target="#이상값-감지"><span class="toc-section-number">2.2.6</span>  이상값 감지</a></li>
+  <li><a href="#결론" id="toc-결론" class="nav-link" data-scroll-target="#결론"><span class="toc-section-number">2.2.7</span>  결론</a></li>
+  </ul></li>
+  <li><a href="#데이터-탐색-기법" id="toc-데이터-탐색-기법" class="nav-link" data-scroll-target="#데이터-탐색-기법"><span class="toc-section-number">2.3</span>  데이터 탐색 기법</a>
+  <ul class="collapse">
+  <li><a href="#산점도" id="toc-산점도" class="nav-link" data-scroll-target="#산점도"><span class="toc-section-number">2.3.1</span>  산점도</a></li>
+  <li><a href="#히스토그램" id="toc-히스토그램" class="nav-link" data-scroll-target="#히스토그램"><span class="toc-section-number">2.3.2</span>  히스토그램</a></li>
+  <li><a href="#상자그림" id="toc-상자그림" class="nav-link" data-scroll-target="#상자그림"><span class="toc-section-number">2.3.3</span>  상자그림</a></li>
+  <li><a href="#결론-1" id="toc-결론-1" class="nav-link" data-scroll-target="#결론-1"><span class="toc-section-number">2.3.4</span>  결론</a></li>
+  </ul></li>
+  <li><a href="#연습문제와-프로젝트" id="toc-연습문제와-프로젝트" class="nav-link" data-scroll-target="#연습문제와-프로젝트"><span class="toc-section-number">2.4</span>  연습문제와 프로젝트</a>
+  <ul class="collapse">
+  <li><a href="#연습문제" id="toc-연습문제" class="nav-link" data-scroll-target="#연습문제"><span class="toc-section-number">2.4.1</span>  연습문제</a></li>
+  <li><a href="#프로젝트" id="toc-프로젝트" class="nav-link" data-scroll-target="#프로젝트"><span class="toc-section-number">2.4.2</span>  프로젝트</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -212,6 +229,77 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="올바른-패키지-선택"><span class="header-section-number">2.2.2</span> 올바른 패키지 선택</h3>
 <p>ggplot2 및 다양한 시각화 패키지는 모두 R에서 데이터 시각화를 만들기 위한 강력한 패키지입니다. 올바른 패키지를 선택하는 것은 프로젝트의 특정 요구 사항에 따라 달라집니다. 고도의 사용자 지정이 필요한 복잡한 시각화를 만드는 데 관심이 있는 경우 <code>ggplot2</code>가 더 나은 선택일 수 있습니다.</p>
 <p>어떤 패키지를 선택하든 효과적인 데이터 시각화의 원칙을 잘 이해하고 명확하고 효과적인 시각화를 만들기 위한 모범 사례를 따르는 것이 중요합니다.</p>
+</section>
+<section id="eda-원칙" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="eda-원칙"><span class="header-section-number">2.2.3</span> EDA 원칙</h3>
+<p>탐색적 데이터 분석(EDA)은 데이터셋을 분석하고 이해하여 주요 특성을 요약하는 과정으로, 주로 시각적 방법을 사용합니다. EDA는 데이터 과학자가 데이터 내부의 패턴과 관계를 더 잘 이해하고 이상값이나 결측값과 같은 잠재적인 문제를 식별하는 데 도움이 됩니다.</p>
+</section>
+<section id="데이터-분포" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="데이터-분포"><span class="header-section-number">2.2.4</span> 데이터 분포</h3>
+<p>데이터 분포는 데이터셋의 값이 어떻게 펴져있는지를 나타냅니다. 데이터 분포를 이해하는 것은 데이터를 분석하는 데 사용되는 통계 방법의 선택에 영향을 미칠 수 있으므로 중요합니다. 데이터 분포를 시각화하는 데 가장 일반적으로 사용되는 방법에는 히스토그램, 밀도 플롯, 상자그림 플롯이 있습니다.</p>
+<p>히스토그램은 데이터를 구간으로 나누고 각 구간에 있는 데이터 수를 세어 연속 데이터의 분포를 시각화하는 방법을 제공합니다. 밀도 플롯은 비슷한 시각화를 제공하지만 데이터의 확률 밀도 함수를 추정합니다. 상자그림 플롯은 데이터의 중앙값, 사분위수 및 이상값을 표시하여 분포를 시각화합니다.</p>
+</section>
+<section id="상관-관계" class="level3" data-number="2.2.5">
+<h3 data-number="2.2.5" class="anchored" data-anchor-id="상관-관계"><span class="header-section-number">2.2.5</span> 상관 관계</h3>
+<p>상관관계는 두 변수 간의 관계의 강도와 방향을 측정하는 척도입니다. 상관관계 분석은 데이터 내의 패턴과 관계를 식별하는 데 유용합니다. 상관 관계를 시각화하는 데 가장 일반적으로 사용되는 방법은 산점도입니다.</p>
+<p>산점도에서 각 점은 두 변수의 값 쌍을 나타냅니다. 점을 2차원 평면에 그려서 두 변수 간의 관계를 시각적으로 검사할 수 있습니다. 양의 상관관계는 한 변수가 증가하면 다른 변수도 증가한다는 것을 의미하며, 음의 상관관계는 한 변수가 증가하면 다른 변수가 감소한다는 것을 의미합니다.</p>
+</section>
+<section id="이상값-감지" class="level3" data-number="2.2.6">
+<h3 data-number="2.2.6" class="anchored" data-anchor-id="이상값-감지"><span class="header-section-number">2.2.6</span> 이상값 감지</h3>
+<p>이상값은 데이터셋의 다른 점들과 크게 다른 데이터 점입니다. 이상값은 통계 분석에 큰 영향을 미칠 수 있으므로 이상값을 식별하고 제거할지 여부를 결정하는 것이 중요합니다. 이상값을 시각화하는 데 가장 일반적으로 사용되는 방법은 상자그림 플롯입니다.</p>
+<p>상자그림 플롯에서 이상값은 플롯의 수염을 벗어난 데이터 포인트로 식별됩니다. 이상값을 감지하는 또 다른 방법은 Z-점수 검정 또는 투키(Tukey) 방법과 같은 통계적 테스트를 사용하는 것입니다.</p>
+</section>
+<section id="결론" class="level3" data-number="2.2.7">
+<h3 data-number="2.2.7" class="anchored" data-anchor-id="결론"><span class="header-section-number">2.2.7</span> 결론</h3>
+<p>탐색적 데이터 분석은 모든 데이터 과학 프로젝트에서 중요한 단계입니다. 데이터 과학자는 데이터 분포, 변수 간의 상관관계, 이상값의 존재를 이해함으로써 데이터에 대한 인사이트를 얻고 데이터 분석 방법에 대해 정보에 입각한 결정을 내릴 수 있습니다. 효과적인 EDA를 위해서는 시각화 및 통계적 방법의 조합과 데이터 분석의 기본 원칙에 대한 충분한 이해가 필요합니다.</p>
+</section>
+</section>
+<section id="데이터-탐색-기법" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="데이터-탐색-기법"><span class="header-section-number">2.3</span> 데이터 탐색 기법</h2>
+<p>데이터 탐색은 데이터셋의 주요 특성을 분석하고 시각화하여 그 기본 패턴과 관계를 이해하는 프로세스입니다. 다음은 데이터 과학에서 데이터 탐색에 가장 일반적으로 사용되는 몇 가지 기술입니다.</p>
+<section id="산점도" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="산점도"><span class="header-section-number">2.3.1</span> 산점도</h3>
+<p>산점도(Scatter Plot)는 두 변수 간의 관계를 탐색하는 데 유용한 기법입니다. 산점도에서 각 점은 비교 대상인 두 변수의 값 쌍을 나타냅니다. X축은 한 변수를 나타내고 Y축은 다른 변수를 나타냅니다. 2차원 평면에 점을 그리면 두 변수 간의 관계를 시각적으로 확인할 수 있습니다.</p>
+<p>예를 들어 한 사람의 나이와 소득 간의 관계를 살펴보고 싶다고 가정해 보겠습니다. 나이를 X축으로 하고 소득을 Y축으로 하는 산점도를 만들 수 있습니다. 산점도를 살펴보면 나이와 소득 사이에 양의 상관관계가 있는지 또는 음의 상관관계가 있는지 확인할 수 있습니다.</p>
+</section>
+<section id="히스토그램" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="히스토그램"><span class="header-section-number">2.3.2</span> 히스토그램</h3>
+<p>히스토그램은 단일 변수의 분포를 시각화하는 방법을 제공합니다. 히스토그램에서 데이터는 구간 또는 구간차원으로 나뉘며, 각 구간차원에 있는 데이터 요소의 수를 계산합니다. 결과 시각화는 각 구간차원 내의 데이터 요소의 빈도를 보여줍니다.</p>
+<p>예를 들어, 데이터셋의 연령 분포를 탐색하고 싶다고 가정해 보겠습니다. X축에 연령을, Y축에 연령 값의 빈도를 포함하는 히스토그램을 만들 수 있습니다. 히스토그램을 검토하여 연령 값이 왼쪽이나 오른쪽으로 치우쳐 있는지 또는 고르게 분포되어 있는지 확인할 수 있습니다.</p>
+</section>
+<section id="상자그림" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="상자그림"><span class="header-section-number">2.3.3</span> 상자그림</h3>
+<p>상자그림(Boxplot)은 단일 변수의 분포를 시각화하고 이상값을 식별할 수 있는 방법을 제공합니다. 상자그림에서는 데이터를 사 분위수로 나누고 중앙값, 1사분위수 및 3사분위수, 특정 범위 내의 최소값과 최대값을 표시하는 상자를 그립니다. 이상값은 상자그림의 수염을 벗어난 데이터 포인트로 식별됩니다.</p>
+<p>예를 들어 데이터셋의 소득 분포를 탐색하고 싶다고 가정해 보겠습니다. Y축에 소득 값이 있는 상자그림을 만들 수 있습니다. 상자그림을 검토하여 소득 값에 이상값이 있는지 확인할 수 있습니다.</p>
+</section>
+<section id="결론-1" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="결론-1"><span class="header-section-number">2.3.4</span> 결론</h3>
+<p>데이터 탐색은 데이터 과학 프로세스에서 중요한 단계입니다. 데이터 과학자는 산점도, 히스토그램, 상자그림과 같은 기법을 사용하여 데이터셋 내의 패턴과 관계에 대한 인사이트를 얻을 수 있습니다. 이러한 기법은 이상값을 식별하고, 변수 분포를 탐색하고, 데이터의 잠재적인 문제를 식별하는 데 사용할 수 있습니다. 궁극적으로 효과적인 데이터 탐색은 데이터를 분석하고 모델링하는 방법에 대해 정보에 입각한 결정을 내리는 데 핵심적인 역할을 합니다.</p>
+</section>
+</section>
+<section id="연습문제와-프로젝트" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="연습문제와-프로젝트"><span class="header-section-number">2.4</span> 연습문제와 프로젝트</h2>
+<p>연습과 프로젝트는 모든 학습 과정에서 매우 중요한 부분이며, 데이터 시각화 및 탐색적 데이터 분석(EDA)도 예외는 아닙니다. 이 섹션에서는 R을 사용하여 데이터 시각화 및 EDA 기술을 연습하는 데 도움이 되는 몇 가지 연습과 프로젝트를 소개합니다.</p>
+<section id="연습문제" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="연습문제"><span class="header-section-number">2.4.1</span> 연습문제</h3>
+<ul>
+<li><p><code>mtcars</code> 데이터셋을 가져와서 마력(<code>hp</code>)에 대한 갤런당 마일(<code>mpg</code>)의 산점도를 만듭니다. 실린더(실린더) 수에 따라 다른 색상을 사용합니다.</p></li>
+<li><p>붓꽃(<code>iris</code>) 데이터셋을 가져와서 각 종(<code>Species</code>)에 대한 꽃받침 길이(<code>Sepal.Length</code>)의 히스토그램을 만듭니다. 종마다 다른 색상을 사용합니다.</p></li>
+<li><p><code>ggplot2</code> 패키지에서 다이아몬드(<code>diamonds</code>) 데이터셋을 가져와서 각 컷(<code>cut</code>)에 대한 가격(<code>price</code>)의 상자그림을 만듭니다. 컷마다 다른 색상을 사용합니다.</p></li>
+<li><p><code>mtcars</code> 데이터셋을 가져와서, 무게(<code>wt</code>)에 대한 갤런당 마일(<code>mpg</code>)의 산점도를 만듭니다. 플롯에 회귀선을 추가합니다.</p></li>
+<li><p><code>gapminder</code> 패키지에서 <code>gapminder</code> 데이터을 가져와서, 2007년에 대한 기대 수명(<code>lifeExp</code>)과 1인당 GDP(<code>gdpPercap</code>)의 산점도를 만듭니다. 대륙(<code>continent</code>)에 따라 다른 색상을 사용합니다.</p></li>
+</ul>
+</section>
+<section id="프로젝트" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="프로젝트"><span class="header-section-number">2.4.2</span> 프로젝트</h3>
+<ul>
+<li><p><code>ggplot2</code> 패키지를 사용하여 데이터 시각화 프로젝트를 만듭니다. 관심 있는 데이터셋을 선택하고 데이터의 다양한 측면을 탐색하는 일련의 플롯을 만듭니다. 프로젝트에는 산점도, 히스토그램, 상자그림이 하나 이상 포함되어야 합니다.</p></li>
+<li><p>시계열 데이터(예: 주가 또는 날씨 데이터)가 포함된 데이터셋을 선택하고 시간에 따른 데이터의 다양한 측면을 탐색하는 일련의 플롯을 만듭니다. 프로젝트에는 꺾은선형 차트, 산점도, 히스토그램이 하나 이상 포함되어야 합니다.</p></li>
+<li><p><code>tidyverse</code> 패키지를 사용해 EDA 프로젝트를 만듭니다. 관심 있는 데이터셋을 선택하고 다양한 EDA 기법을 사용하여 데이터의 다양한 측면을 탐색합니다. 프로젝트에는 데이터 분포 시각화, 여러 변수 간의 관계 시각화, 이상값 시각화 중 하나 이상이 포함되어야 합니다.</p></li>
+<li><p>공간 데이터(예: 인구 밀도 맵 또는 지진 위치 맵)가 포함된 데이터셋을 선택하고 데이터의 다양한 측면을 탐색하는 일련의 플롯을 만듭니다. 프로젝트에는 적어도 하나의 맵, 하나의 분산형 차트, 하나의 히스토그램이 포함되어야 합니다.</p></li>
+<li><p>네트워크 데이터가 포함된 데이터셋(예: 소셜 네트워크 또는 교통 네트워크)을 선택하고 데이터의 다양한 측면을 탐색하는 일련의 플롯을 만듭니다. 프로젝트에는 네트워크 다이어그램, 분산형 차트, 히스토그램이 하나 이상 포함되어야 합니다.</p></li>
+</ul>
+<p>이러한 연습과 프로젝트를 연습하면 R의 데이터 시각화 및 EDA 기술에 더 익숙해지고, 이러한 기술을 사용하여 데이터에서 인사이트를 얻는 방법을 더 잘 이해할 수 있습니다.</p>
 
 
 </section>
