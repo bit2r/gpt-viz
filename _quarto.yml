@@ -10,6 +10,7 @@ book:
     - index.qmd
     - intro.qmd
     - viz_EDA.qmd
+    - model.qmd
     - curriculum.qmd
     - references.qmd
 
