@@ -2,29 +2,68 @@ project:
   type: book
   output-dir: docs
 
+lang: kr
+
 book:
+  favicon: images/android-chrome-192x192.png
+  site-url: https://r2bit.com/book_chatGPT/
   title: "데이터 사이언스"
   author: "사단법인 한국 R 사용자회, chatGPT"
-  date: "2023. 2. 27."
+  date: last-modified
+  date-format: "YYYY년 MM월 DD일"
   chapters:
     - index.qmd
-    - intro.qmd
-    - viz_EDA.qmd
-    - model.qmd
-    - advanced.qmd
-    - curriculum.qmd
+    - part: "글쓰기"
+      chapters:
+        - intro.qmd
+        - viz_EDA.qmd
+        - model.qmd
+        - advanced.qmd
+    - part: "프로젝트"
     - references.qmd
+  sidebar:
+    pinned: true
+
+  repo-url: https://github.com/bit2r/book_chatGPT
+  search:
+    location: sidebar
+    type: textbox
+  downloads: [pdf]
+  sharing: [twitter, facebook]
+
 
 bibliography: references.bib
+link-citations: yes
+mainfont: "NanumMyeongjo"
+sansfont: "NanumGothic"
+monofont: "D2Coding"
+
+
 
 format:
   html:
     theme: cosmo
+    cover-image: images/korea_logo.png
   pdf:
     documentclass: scrreprt
+    papersize: b5paper
+    geometry: "left=2cm, right=2cm, top=2.7cm, bottom=3cm"
+    header-includes:
+      - \usepackage{lastpage}
+      - \usepackage{fancyhdr}
+      - \definecolor{col1}{RGB}{5, 53, 255}
+      - \fancypagestyle{ttlpage}{\fancyfoot[C]{{\thepage} of \pageref{LastPage}}}
+      - \thispagestyle{ttlpage}
+      - \pagestyle{fancy}
+      - \fancyhead[EL,OL]{\rightmark}
+      - \fancyhead[EC,OC]{}
+      - \fancyhead[ER,OR]{데이터 과학}
+      - \fancyfoot[EL,OL]{\color{col1}{한국R사용자회}}
+      - \fancyfoot[EC,OC]{\textbf{AI 비서와 디지털 글쓰기}}
+      - \fancyfoot[ER,OR] {총 \pageref{LastPage} 중 {\thepage}}
 
 filters:
    - lightbox
 lightbox: auto
 
-
+# quarto render --to pdf -s -V papersize:b5 --output-dir _pdf

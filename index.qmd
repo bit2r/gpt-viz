@@ -3,34 +3,15 @@
 한국 R 사용자회는 2022년 2월 28일에 설립되어 1년을 맞이하게 되었습니다. R 사용자회는 R Consortium R User Groups에 등록된 Seoul R Meetup을 운영하며 데이터 사이언스 R / Tidyverse 미트업을 매월 개최하고 있습니다. 또한, R 지식 나눔과 커뮤니티 멤버들 간의 사랑방 역할도 수행하고 있습니다.
 
 2022년부터는 오픈 통계 패키지(BitStat) 패키지를 개발하여 보급하였을 뿐만 아니라 BitNLP, BitSpatial, BitReport 패키지를 개발하여 공개하였습니다. 또한, "디지털 글쓰기", "데이터 과학 프로그래밍", "데이터 시각화", "데이터 과학 기본기", "오픈 통계 패키지", "R 텍스트 마이닝", "데이터 과학 언플러그드" 등의 전자책을 집필하여 무료로 대중에 공개하였습니다.
-2023년은 교보정보통신 자회사 디플래닉스 후원을 받아 강남 교보타워에서 **chatGPT와 데이터 과학을 주제**로 매월  진행될 예정입니다.
+2023년은 ~~교보정보통신 자회사 디플래닉스 후원을 받아 강남 교보타워에서~~ **chatGPT와 데이터 과학을 주제**로 매월  진행될 예정입니다.
 
 한국 R 사용자회는 AI와 함께 chatGPT 및 연관 AI 도구를 활용하여 데이터 문해력 향상과 디지털 불평등 해소를 위해 데이터 과학 전자책을 제작하여 공개하게 되었습니다.
 
 더 많은 정보는 아래 링크를 참고해주세요.
 
-- 사단법인 한국 R 사용자회: https://r2bit.com/
-- Meetup : https://www.meetup.com/seoul-r-meetup/
-- Seoul R Meetup : https://r2bit.com/seoul-R/
-- Facebook Group : https://www.facebook.com/groups/tidyverse
-- Youtube Channel: https://www.youtube.com/channel/UCW-epmIvjBEhhVXw_F0Nqbw
-
-## 작업방식
-
-chatGPT 각장의 절을 작성하여 deepl에서 교정 후 quarto book으로 출판한다.
-
-:::{#fig-chatGPT layout-nrow=1}
-
-![chatGPT 작성](images/publishing_chatGPT.png)
-
-![DeepL 번역 및 교정](images/publishing_DeepL.png)
-
-![쿼토 출판저작](images/publishing_quarto.png)
-
-chatGPT 디지털 글쓰기 저작 흐름
-
-:::
-
-
-
+- 사단법인 한국 R 사용자회: <https://r2bit.com/>
+- Meetup : <https://www.meetup.com/seoul-r-meetup/>
+- Seoul R Meetup : <https://r2bit.com/seoul-R/>
+- Facebook Group : <https://www.facebook.com/groups/tidyverse>
+- Youtube Channel: <http://bit.ly/3kzwlkK>
 
