@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="kr" xml:lang="kr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>데이터 사이언스 - 2&nbsp; 시각화와 EDA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./model.html" rel="next">
+<link href="./intro.html" rel="prev">
+<link href="./images/android-chrome-192x192.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "일치 없음",
+    "search-matching-documents-text": "일치된 문서",
+    "search-copy-link-title": "검색 링크 복사",
+    "search-hide-matches-text": "추가 검색 결과 숨기기",
+    "search-more-match-text": "추가 검색결과",
+    "search-more-matches-text": "추가 검색결과",
+    "search-clear-button-title": "제거",
+    "search-detached-cancel-button-title": "취소",
+    "search-submit-button-title": "검색"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">시각화와 EDA</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">데이터 사이언스</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/bit2r/book_chatGPT" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./데이터-사이언스.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">서문</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">글쓰기</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R 및 데이터 랭글링 소개</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./viz_EDA.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">시각화와 EDA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">통계분석과 기계학습 기초</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./advanced.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">고급 데이터 과학 기법</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">프로젝트</span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">참고문헌</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">목차</h2>
+   
+  <ul>
+  <li><a href="#데이터-시각화와-중요성" id="toc-데이터-시각화와-중요성" class="nav-link active" data-scroll-target="#데이터-시각화와-중요성"><span class="toc-section-number">2.1</span>  데이터 시각화와 중요성</a>
+  <ul class="collapse">
+  <li><a href="#데이터-시각화-유형" id="toc-데이터-시각화-유형" class="nav-link" data-scroll-target="#데이터-시각화-유형"><span class="toc-section-number">2.1.1</span>  데이터 시각화 유형</a></li>
+  <li><a href="#효과적인-시각화-원칙" id="toc-효과적인-시각화-원칙" class="nav-link" data-scroll-target="#효과적인-시각화-원칙"><span class="toc-section-number">2.1.2</span>  효과적인 시각화 원칙</a></li>
+  </ul></li>
+  <li><a href="#시각화-도구---ggplot2" id="toc-시각화-도구---ggplot2" class="nav-link" data-scroll-target="#시각화-도구---ggplot2"><span class="toc-section-number">2.2</span>  시각화 도구 - <code>ggplot2</code></a>
+  <ul class="collapse">
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="toc-section-number">2.2.1</span>  <code>ggplot2</code></a></li>
+  <li><a href="#올바른-패키지-선택" id="toc-올바른-패키지-선택" class="nav-link" data-scroll-target="#올바른-패키지-선택"><span class="toc-section-number">2.2.2</span>  올바른 패키지 선택</a></li>
+  <li><a href="#eda-원칙" id="toc-eda-원칙" class="nav-link" data-scroll-target="#eda-원칙"><span class="toc-section-number">2.2.3</span>  EDA 원칙</a></li>
+  <li><a href="#데이터-분포" id="toc-데이터-분포" class="nav-link" data-scroll-target="#데이터-분포"><span class="toc-section-number">2.2.4</span>  데이터 분포</a></li>
+  <li><a href="#상관-관계" id="toc-상관-관계" class="nav-link" data-scroll-target="#상관-관계"><span class="toc-section-number">2.2.5</span>  상관 관계</a></li>
+  <li><a href="#이상값-감지" id="toc-이상값-감지" class="nav-link" data-scroll-target="#이상값-감지"><span class="toc-section-number">2.2.6</span>  이상값 감지</a></li>
+  <li><a href="#결론" id="toc-결론" class="nav-link" data-scroll-target="#결론"><span class="toc-section-number">2.2.7</span>  결론</a></li>
+  </ul></li>
+  <li><a href="#데이터-탐색-기법" id="toc-데이터-탐색-기법" class="nav-link" data-scroll-target="#데이터-탐색-기법"><span class="toc-section-number">2.3</span>  데이터 탐색 기법</a>
+  <ul class="collapse">
+  <li><a href="#산점도" id="toc-산점도" class="nav-link" data-scroll-target="#산점도"><span class="toc-section-number">2.3.1</span>  산점도</a></li>
+  <li><a href="#히스토그램" id="toc-히스토그램" class="nav-link" data-scroll-target="#히스토그램"><span class="toc-section-number">2.3.2</span>  히스토그램</a></li>
+  <li><a href="#상자그림" id="toc-상자그림" class="nav-link" data-scroll-target="#상자그림"><span class="toc-section-number">2.3.3</span>  상자그림</a></li>
+  <li><a href="#결론-1" id="toc-결론-1" class="nav-link" data-scroll-target="#결론-1"><span class="toc-section-number">2.3.4</span>  결론</a></li>
+  </ul></li>
+  <li><a href="#연습문제와-프로젝트" id="toc-연습문제와-프로젝트" class="nav-link" data-scroll-target="#연습문제와-프로젝트"><span class="toc-section-number">2.4</span>  연습문제와 프로젝트</a>
+  <ul class="collapse">
+  <li><a href="#연습문제" id="toc-연습문제" class="nav-link" data-scroll-target="#연습문제"><span class="toc-section-number">2.4.1</span>  연습문제</a></li>
+  <li><a href="#프로젝트" id="toc-프로젝트" class="nav-link" data-scroll-target="#프로젝트"><span class="toc-section-number">2.4.2</span>  프로젝트</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">시각화와 EDA</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>데이터 시각화는 일반적으로 차트, 그래프 및 기타 시각적 요소를 사용하여 데이터를 그래픽으로 표현하는 프로세스입니다. 데이터 시각화는 단순한 숫자, 표만으로는 이해하기 어려운 데이터의 복잡한 패턴과 관계를 탐색하고 전달할 수 있게 해주기 때문에 데이터 과학에서 중요한 부분입니다.</p>
+<section id="데이터-시각화와-중요성" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="데이터-시각화와-중요성"><span class="header-section-number">2.1</span> 데이터 시각화와 중요성</h2>
+<p>데이터 과학에서 데이터 시각화가 중요한 이유는 여러 가지가 있습니다:</p>
+<ul>
+<li><p>데이터 탐색: 데이터 시각화를 사용하면 데이터를 시각적으로 탐색하고 숫자 표에서 바로 알 수 없는 패턴, 추세 및 이상값을 신속하게 식별할 수 있습니다.</p></li>
+<li><p>인사이트 전달: 데이터 시각화를 통해 인사이트와 발견 사항을 명확하고 간결한 방식으로 다른 사람에게 전달할 수 있습니다. 데이터를 시각적으로 제시함으로써 더 많은 사람들이 복잡한 정보에 더 쉽게 접근하고 이해할 수 있도록 만들 수 있습니다.</p></li>
+<li><p>모델 검증: 데이터 시각화는 변수 간의 관계를 시각화하고 잠재적인 관심 영역을 식별하여 모델과 가설을 검증하는 데 사용할 수 있습니다.</p></li>
+<li><p>의사 결정 안내: 데이터 시각화는 원시 데이터에서 즉시 드러나지 않을 수 있는 추세와 패턴을 식별하는 데 도움이 되는 방식으로 데이터를 제시하여 의사 결정을 안내하는 데 사용할 수 있습니다.</p></li>
+</ul>
+<section id="데이터-시각화-유형" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="데이터-시각화-유형"><span class="header-section-number">2.1.1</span> 데이터 시각화 유형</h3>
+<p>데이터를 표현하는 데 사용할 수 있는 데이터 시각화에는 다음과 같은 다양한 유형이 있습니다:</p>
+<ul>
+<li><p>막대 차트: 카테고리 간 값을 비교하는 데 사용됩니다.</p></li>
+<li><p>꺾은선형 차트: 시간 경과에 따른 추세를 표시하거나 여러 변수의 변화를 비교하는 데 사용됩니다.</p></li>
+<li><p>산점도 차트: 두 변수 간의 관계를 시각화하는 데 사용됩니다.</p></li>
+<li><p>히트맵: 2차원 공간에서 데이터의 밀도를 시각화하는 데 사용됩니다.</p></li>
+<li><p>나무트리 맵: 계층형 데이터를 시각화하는 데 사용됩니다.</p></li>
+<li><p>네트워크 다이어그램: 엔티티 간의 관계를 시각화하는 데 사용됩니다.</p></li>
+</ul>
+</section>
+<section id="효과적인-시각화-원칙" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="효과적인-시각화-원칙"><span class="header-section-number">2.1.2</span> 효과적인 시각화 원칙</h3>
+<p>효과적인 데이터 시각화를 만들려면 몇 가지 기본 원칙을 따르는 것이 중요합니다:</p>
+<ul>
+<li><p>단순성: 불필요한 군더더기를 피하여 시각화를 단순하고 읽기 쉽게 유지합니다.</p></li>
+<li><p>정확성: 시각화가 왜곡이나 잘못된 표현을 피하면서 데이터를 정확하게 표현하는지 확인합니다.</p></li>
+<li><p>관련성: 데이터와 전달하려는 메시지에 적합한 시각화 유형을 선택합니다.</p></li>
+<li><p>일관성: 여러 시각화에서 일관된 색 구성표, 글꼴 및 기타 시각적 요소를 사용합니다.</p></li>
+<li><p>상호 작용: 사용자가 데이터를 더 자세히 탐색할 수 있도록 상호 작용을 제공하세요.</p></li>
+</ul>
+<p>이러한 원칙을 따르고 적절한 데이터 시각화를 사용하면 복잡한 데이터를 이해하고 전달하는 데 도움이 되는 명확하고 효과적인 시각화를 만들 수 있습니다.</p>
+</section>
+</section>
+<section id="시각화-도구---ggplot2" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="시각화-도구---ggplot2"><span class="header-section-number">2.2</span> 시각화 도구 - <code>ggplot2</code></h2>
+<p>R은 데이터 시각화를 만들기 위한 다양한 패키지를 제공하지만, 가장 인기 있고 강력한 두 가지 패키지는 <code>ggplot2</code>입니다. 이 패키지를 사용하면 산점도 차트, 꺾은선형 차트, 막대 차트 등 다양한 고품질의 사용자 지정 가능한 시각화를 만들 수 있습니다.</p>
+<section id="ggplot2" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">2.2.1</span> <code>ggplot2</code></h3>
+<p><code>ggplot2</code>는 그래픽 문법을 사용하여 우아하고 사용자 지정 가능한 데이터 시각화를 만들기 위한 패키지입니다. 모든 시각화는 기하학적 도형, 눈금, 좌표계와 같은 선언적 구성 요소 집합으로 분해할 수 있다는 아이디어를 기반으로 합니다. 이러한 빌딩 블록을 다양한 방식으로 결합하여 사용자는 다양하고 복잡한 시각화를 만들 수 있습니다.</p>
+<p>ggplot2의 몇 가지 기능은 다음과 같습니다:</p>
+<ul>
+<li><p>레이어링(Layering): 점, 선, 레이블 등 다양한 요소를 레이어링하여 복잡한 시각화를 만들 수 있습니다.</p></li>
+<li><p>테마(Themes): 글꼴, 색상 및 배경을 변경하여 시각화의 모양을 사용자 지정할 수 있는 기능입니다.</p></li>
+<li><p>패싯(Faceting): 데이터의 서로 다른 하위 집합을 기반으로 여러 개의 작은 시각화를 만드는 기능입니다.</p></li>
+</ul>
+</section>
+<section id="올바른-패키지-선택" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="올바른-패키지-선택"><span class="header-section-number">2.2.2</span> 올바른 패키지 선택</h3>
+<p>ggplot2 및 다양한 시각화 패키지는 모두 R에서 데이터 시각화를 만들기 위한 강력한 패키지입니다. 올바른 패키지를 선택하는 것은 프로젝트의 특정 요구 사항에 따라 달라집니다. 고도의 사용자 지정이 필요한 복잡한 시각화를 만드는 데 관심이 있는 경우 <code>ggplot2</code>가 더 나은 선택일 수 있습니다.</p>
+<p>어떤 패키지를 선택하든 효과적인 데이터 시각화의 원칙을 잘 이해하고 명확하고 효과적인 시각화를 만들기 위한 모범 사례를 따르는 것이 중요합니다.</p>
+</section>
+<section id="eda-원칙" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="eda-원칙"><span class="header-section-number">2.2.3</span> EDA 원칙</h3>
+<p>탐색적 데이터 분석(EDA)은 데이터셋을 분석하고 이해하여 주요 특성을 요약하는 과정으로, 주로 시각적 방법을 사용합니다. EDA는 데이터 과학자가 데이터 내부의 패턴과 관계를 더 잘 이해하고 이상값이나 결측값과 같은 잠재적인 문제를 식별하는 데 도움이 됩니다.</p>
+</section>
+<section id="데이터-분포" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="데이터-분포"><span class="header-section-number">2.2.4</span> 데이터 분포</h3>
+<p>데이터 분포는 데이터셋의 값이 어떻게 펴져있는지를 나타냅니다. 데이터 분포를 이해하는 것은 데이터를 분석하는 데 사용되는 통계 방법의 선택에 영향을 미칠 수 있으므로 중요합니다. 데이터 분포를 시각화하는 데 가장 일반적으로 사용되는 방법에는 히스토그램, 밀도 플롯, 상자그림 플롯이 있습니다.</p>
+<p>히스토그램은 데이터를 구간으로 나누고 각 구간에 있는 데이터 수를 세어 연속 데이터의 분포를 시각화하는 방법을 제공합니다. 밀도 플롯은 비슷한 시각화를 제공하지만 데이터의 확률 밀도 함수를 추정합니다. 상자그림 플롯은 데이터의 중앙값, 사분위수 및 이상값을 표시하여 분포를 시각화합니다.</p>
+</section>
+<section id="상관-관계" class="level3" data-number="2.2.5">
+<h3 data-number="2.2.5" class="anchored" data-anchor-id="상관-관계"><span class="header-section-number">2.2.5</span> 상관 관계</h3>
+<p>상관관계는 두 변수 간의 관계의 강도와 방향을 측정하는 척도입니다. 상관관계 분석은 데이터 내의 패턴과 관계를 식별하는 데 유용합니다. 상관 관계를 시각화하는 데 가장 일반적으로 사용되는 방법은 산점도입니다.</p>
+<p>산점도에서 각 점은 두 변수의 값 쌍을 나타냅니다. 점을 2차원 평면에 그려서 두 변수 간의 관계를 시각적으로 검사할 수 있습니다. 양의 상관관계는 한 변수가 증가하면 다른 변수도 증가한다는 것을 의미하며, 음의 상관관계는 한 변수가 증가하면 다른 변수가 감소한다는 것을 의미합니다.</p>
+</section>
+<section id="이상값-감지" class="level3" data-number="2.2.6">
+<h3 data-number="2.2.6" class="anchored" data-anchor-id="이상값-감지"><span class="header-section-number">2.2.6</span> 이상값 감지</h3>
+<p>이상값은 데이터셋의 다른 점들과 크게 다른 데이터 점입니다. 이상값은 통계 분석에 큰 영향을 미칠 수 있으므로 이상값을 식별하고 제거할지 여부를 결정하는 것이 중요합니다. 이상값을 시각화하는 데 가장 일반적으로 사용되는 방법은 상자그림 플롯입니다.</p>
+<p>상자그림 플롯에서 이상값은 플롯의 수염을 벗어난 데이터 포인트로 식별됩니다. 이상값을 감지하는 또 다른 방법은 Z-점수 검정 또는 투키(Tukey) 방법과 같은 통계적 테스트를 사용하는 것입니다.</p>
+</section>
+<section id="결론" class="level3" data-number="2.2.7">
+<h3 data-number="2.2.7" class="anchored" data-anchor-id="결론"><span class="header-section-number">2.2.7</span> 결론</h3>
+<p>탐색적 데이터 분석은 모든 데이터 과학 프로젝트에서 중요한 단계입니다. 데이터 과학자는 데이터 분포, 변수 간의 상관관계, 이상값의 존재를 이해함으로써 데이터에 대한 인사이트를 얻고 데이터 분석 방법에 대해 정보에 입각한 결정을 내릴 수 있습니다. 효과적인 EDA를 위해서는 시각화 및 통계적 방법의 조합과 데이터 분석의 기본 원칙에 대한 충분한 이해가 필요합니다.</p>
+</section>
+</section>
+<section id="데이터-탐색-기법" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="데이터-탐색-기법"><span class="header-section-number">2.3</span> 데이터 탐색 기법</h2>
+<p>데이터 탐색은 데이터셋의 주요 특성을 분석하고 시각화하여 그 기본 패턴과 관계를 이해하는 프로세스입니다. 다음은 데이터 과학에서 데이터 탐색에 가장 일반적으로 사용되는 몇 가지 기술입니다.</p>
+<section id="산점도" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="산점도"><span class="header-section-number">2.3.1</span> 산점도</h3>
+<p>산점도(Scatter Plot)는 두 변수 간의 관계를 탐색하는 데 유용한 기법입니다. 산점도에서 각 점은 비교 대상인 두 변수의 값 쌍을 나타냅니다. X축은 한 변수를 나타내고 Y축은 다른 변수를 나타냅니다. 2차원 평면에 점을 그리면 두 변수 간의 관계를 시각적으로 확인할 수 있습니다.</p>
+<p>예를 들어 한 사람의 나이와 소득 간의 관계를 살펴보고 싶다고 가정해 보겠습니다. 나이를 X축으로 하고 소득을 Y축으로 하는 산점도를 만들 수 있습니다. 산점도를 살펴보면 나이와 소득 사이에 양의 상관관계가 있는지 또는 음의 상관관계가 있는지 확인할 수 있습니다.</p>
+</section>
+<section id="히스토그램" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="히스토그램"><span class="header-section-number">2.3.2</span> 히스토그램</h3>
+<p>히스토그램은 단일 변수의 분포를 시각화하는 방법을 제공합니다. 히스토그램에서 데이터는 구간 또는 구간차원으로 나뉘며, 각 구간차원에 있는 데이터 요소의 수를 계산합니다. 결과 시각화는 각 구간차원 내의 데이터 요소의 빈도를 보여줍니다.</p>
+<p>예를 들어, 데이터셋의 연령 분포를 탐색하고 싶다고 가정해 보겠습니다. X축에 연령을, Y축에 연령 값의 빈도를 포함하는 히스토그램을 만들 수 있습니다. 히스토그램을 검토하여 연령 값이 왼쪽이나 오른쪽으로 치우쳐 있는지 또는 고르게 분포되어 있는지 확인할 수 있습니다.</p>
+</section>
+<section id="상자그림" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="상자그림"><span class="header-section-number">2.3.3</span> 상자그림</h3>
+<p>상자그림(Boxplot)은 단일 변수의 분포를 시각화하고 이상값을 식별할 수 있는 방법을 제공합니다. 상자그림에서는 데이터를 사 분위수로 나누고 중앙값, 1사분위수 및 3사분위수, 특정 범위 내의 최소값과 최대값을 표시하는 상자를 그립니다. 이상값은 상자그림의 수염을 벗어난 데이터 포인트로 식별됩니다.</p>
+<p>예를 들어 데이터셋의 소득 분포를 탐색하고 싶다고 가정해 보겠습니다. Y축에 소득 값이 있는 상자그림을 만들 수 있습니다. 상자그림을 검토하여 소득 값에 이상값이 있는지 확인할 수 있습니다.</p>
+</section>
+<section id="결론-1" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="결론-1"><span class="header-section-number">2.3.4</span> 결론</h3>
+<p>데이터 탐색은 데이터 과학 프로세스에서 중요한 단계입니다. 데이터 과학자는 산점도, 히스토그램, 상자그림과 같은 기법을 사용하여 데이터셋 내의 패턴과 관계에 대한 인사이트를 얻을 수 있습니다. 이러한 기법은 이상값을 식별하고, 변수 분포를 탐색하고, 데이터의 잠재적인 문제를 식별하는 데 사용할 수 있습니다. 궁극적으로 효과적인 데이터 탐색은 데이터를 분석하고 모델링하는 방법에 대해 정보에 입각한 결정을 내리는 데 핵심적인 역할을 합니다.</p>
+</section>
+</section>
+<section id="연습문제와-프로젝트" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="연습문제와-프로젝트"><span class="header-section-number">2.4</span> 연습문제와 프로젝트</h2>
+<p>연습과 프로젝트는 모든 학습 과정에서 매우 중요한 부분이며, 데이터 시각화 및 탐색적 데이터 분석(EDA)도 예외는 아닙니다. 이 섹션에서는 R을 사용하여 데이터 시각화 및 EDA 기술을 연습하는 데 도움이 되는 몇 가지 연습과 프로젝트를 소개합니다.</p>
+<section id="연습문제" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="연습문제"><span class="header-section-number">2.4.1</span> 연습문제</h3>
+<ul>
+<li><p><code>mtcars</code> 데이터셋을 가져와서 마력(<code>hp</code>)에 대한 갤런당 마일(<code>mpg</code>)의 산점도를 만듭니다. 실린더(실린더) 수에 따라 다른 색상을 사용합니다.</p></li>
+<li><p>붓꽃(<code>iris</code>) 데이터셋을 가져와서 각 종(<code>Species</code>)에 대한 꽃받침 길이(<code>Sepal.Length</code>)의 히스토그램을 만듭니다. 종마다 다른 색상을 사용합니다.</p></li>
+<li><p><code>ggplot2</code> 패키지에서 다이아몬드(<code>diamonds</code>) 데이터셋을 가져와서 각 컷(<code>cut</code>)에 대한 가격(<code>price</code>)의 상자그림을 만듭니다. 컷마다 다른 색상을 사용합니다.</p></li>
+<li><p><code>mtcars</code> 데이터셋을 가져와서, 무게(<code>wt</code>)에 대한 갤런당 마일(<code>mpg</code>)의 산점도를 만듭니다. 플롯에 회귀선을 추가합니다.</p></li>
+<li><p><code>gapminder</code> 패키지에서 <code>gapminder</code> 데이터을 가져와서, 2007년에 대한 기대 수명(<code>lifeExp</code>)과 1인당 GDP(<code>gdpPercap</code>)의 산점도를 만듭니다. 대륙(<code>continent</code>)에 따라 다른 색상을 사용합니다.</p></li>
+</ul>
+</section>
+<section id="프로젝트" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="프로젝트"><span class="header-section-number">2.4.2</span> 프로젝트</h3>
+<ul>
+<li><p><code>ggplot2</code> 패키지를 사용하여 데이터 시각화 프로젝트를 만듭니다. 관심 있는 데이터셋을 선택하고 데이터의 다양한 측면을 탐색하는 일련의 플롯을 만듭니다. 프로젝트에는 산점도, 히스토그램, 상자그림이 하나 이상 포함되어야 합니다.</p></li>
+<li><p>시계열 데이터(예: 주가 또는 날씨 데이터)가 포함된 데이터셋을 선택하고 시간에 따른 데이터의 다양한 측면을 탐색하는 일련의 플롯을 만듭니다. 프로젝트에는 꺾은선형 차트, 산점도, 히스토그램이 하나 이상 포함되어야 합니다.</p></li>
+<li><p><code>tidyverse</code> 패키지를 사용해 EDA 프로젝트를 만듭니다. 관심 있는 데이터셋을 선택하고 다양한 EDA 기법을 사용하여 데이터의 다양한 측면을 탐색합니다. 프로젝트에는 데이터 분포 시각화, 여러 변수 간의 관계 시각화, 이상값 시각화 중 하나 이상이 포함되어야 합니다.</p></li>
+<li><p>공간 데이터(예: 인구 밀도 맵 또는 지진 위치 맵)가 포함된 데이터셋을 선택하고 데이터의 다양한 측면을 탐색하는 일련의 플롯을 만듭니다. 프로젝트에는 적어도 하나의 맵, 하나의 분산형 차트, 하나의 히스토그램이 포함되어야 합니다.</p></li>
+<li><p>네트워크 데이터가 포함된 데이터셋(예: 소셜 네트워크 또는 교통 네트워크)을 선택하고 데이터의 다양한 측면을 탐색하는 일련의 플롯을 만듭니다. 프로젝트에는 네트워크 다이어그램, 분산형 차트, 히스토그램이 하나 이상 포함되어야 합니다.</p></li>
+</ul>
+<p>이러한 연습과 프로젝트를 연습하면 R의 데이터 시각화 및 EDA 기술에 더 익숙해지고, 이러한 기술을 사용하여 데이터에서 인사이트를 얻는 방법을 더 잘 이해할 수 있습니다.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "복사완료!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "복사완료!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R 및 데이터 랭글링 소개</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./model.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">통계분석과 기계학습 기초</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

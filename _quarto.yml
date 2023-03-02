@@ -48,6 +48,8 @@ format:
     documentclass: scrreprt
     papersize: b5paper
     geometry: "left=2cm, right=2cm, top=2.7cm, bottom=3cm"
+    output-file: "ds_chatGPT"
+    output-ext:  "pdf"
     header-includes:
       - \usepackage{lastpage}
       - \usepackage{fancyhdr}
